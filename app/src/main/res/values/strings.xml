@@ -1,13 +1,18 @@
 <resources>
+    //App view strings
     <string name="app_name">pets-project</string>
     <string name="button_login">Войти</string>
     <string name="switch_login">Вход</string>
     <string name="switch_registration">Регистрация</string>
     <string name="edit_text_email">Email</string>
     <string name="edit_text_password">Пароль</string>
-    <string name="text_button_fogot">Забыли пароль?</string>
+    <string name="text_button_forgot">Забыли пароль?</string>
     <string name="text_button_no_login">Войти позже</string>
     <string name="edit_text_repeat_password">Повторите пароль</string>
     <string name="button_registration">Зарегистрироваться</string>
     <string name="edit_text_name">Имя</string>
+
+    //Content description
+    <string name="cd_mark_login_button">Login button</string>
+    <string name="cd_arrow_no_login_button">Without login arrow</string>
 </resources>

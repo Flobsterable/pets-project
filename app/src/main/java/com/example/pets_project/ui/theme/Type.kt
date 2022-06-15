@@ -12,25 +12,23 @@ import com.example.pets_project.R
 import com.example.pets_project.ui.theme.Typography
 
 // Set of Material typography styles to start with
-private val mulish = FontFamily(
-    Font(R.font.poppins_black, weight = FontWeight.Black),
-    Font(R.font.poppins_black_italic,weight = FontWeight.Black, style = FontStyle.Italic),
-    Font(R.font.poppins_bold, weight = FontWeight.Bold),
-    Font(R.font.poppins_bold_italic,weight = FontWeight.Bold, style = FontStyle.Italic),
-    Font(R.font.poppins_extra_bold, weight = FontWeight.ExtraBold),
-    Font(R.font.poppins_extra_bold_italic, weight = FontWeight.ExtraBold, style = FontStyle.Italic),
-    Font(R.font.poppins_extra_light, weight = FontWeight.ExtraLight),
-    Font(R.font.poppins_extra_light_italic,weight = FontWeight.ExtraLight, style = FontStyle.Italic),
-    Font(R.font.poppins_italic, style = FontStyle.Italic),
-    Font(R.font.poppins_light, weight = FontWeight.Light),
-    Font(R.font.poppins_light_italic, weight = FontWeight.Light, style = FontStyle.Italic),
-    Font(R.font.poppins_medium, weight = FontWeight.Medium),
-    Font(R.font.poppins_medium_italic,weight = FontWeight.Medium, style = FontStyle.Italic),
-    Font(R.font.poppins_regular),
-    Font(R.font.poppins_semi_bold, weight = FontWeight.SemiBold),
-    Font(R.font.poppins_semi_bold_italic, weight = FontWeight.SemiBold,style = FontStyle.Italic),
-    Font(R.font.poppins_thin, weight = FontWeight.Thin),
-    Font(R.font.poppins_thin_italic, weight = FontWeight.Thin ,style = FontStyle.Italic)
+val mulish = FontFamily(
+    Font(R.font.mulish_black, weight = FontWeight.Black),
+    Font(R.font.mulish_black_italic,weight = FontWeight.Black, style = FontStyle.Italic),
+    Font(R.font.mulish_bold, weight = FontWeight.Bold),
+    Font(R.font.mulish_bold_italic,weight = FontWeight.Bold, style = FontStyle.Italic),
+    Font(R.font.mulish_extra_bold, weight = FontWeight.ExtraBold),
+    Font(R.font.mulish_extra_bold_italic, weight = FontWeight.ExtraBold, style = FontStyle.Italic),
+    Font(R.font.mulish_extra_light, weight = FontWeight.ExtraLight),
+    Font(R.font.mulish_extra_light_italic,weight = FontWeight.ExtraLight, style = FontStyle.Italic),
+    Font(R.font.mulish_italic, style = FontStyle.Italic),
+    Font(R.font.mulish_light, weight = FontWeight.Light),
+    Font(R.font.mulish_light_italic, weight = FontWeight.Light, style = FontStyle.Italic),
+    Font(R.font.mulish_medium, weight = FontWeight.Medium),
+    Font(R.font.mulish_medium_italic,weight = FontWeight.Medium, style = FontStyle.Italic),
+    Font(R.font.mulish_regular),
+    Font(R.font.mulish_semi_bold, weight = FontWeight.SemiBold),
+    Font(R.font.mulish_semi_bold_italic, weight = FontWeight.SemiBold,style = FontStyle.Italic),
 )
 
 val Typography = Typography(
@@ -41,9 +39,14 @@ val Typography = Typography(
     ),
     button = TextStyle(
         fontFamily = mulish,
-        fontWeight = FontWeight(700),
+        fontWeight = FontWeight.W700,
         fontSize = 16.sp
     ),
+    caption = TextStyle(
+        fontFamily = mulish,
+        fontWeight = FontWeight(400),
+        fontSize = 12.sp
+    )
 
     /* Other default text styles to override
     button = TextStyle(
@@ -51,11 +54,7 @@ val Typography = Typography(
         fontWeight = FontWeight.W500,
         fontSize = 14.sp
     ),
-    caption = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
-    )
+
     */
 )
 
