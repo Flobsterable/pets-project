@@ -15,4 +15,5 @@
     //Content description
     <string name="cd_mark_login_button">Login button</string>
     <string name="cd_arrow_no_login_button">Without login arrow</string>
+    <string name="cd_logo_header">Logo Header</string>
 </resources>

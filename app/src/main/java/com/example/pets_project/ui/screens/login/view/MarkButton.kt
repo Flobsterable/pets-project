@@ -19,7 +19,6 @@ import com.example.pets_project.R
 fun MarkButton(modifier: Modifier, stringResId : Int, painterResId : Int){
     Button(onClick = { /*TODO*/ },
         modifier = modifier,
-          //  .padding(top = 24.dp),
         contentPadding = PaddingValues(0.dp),
         shape = RoundedCornerShape(8.dp)
     ) {

@@ -1,12 +1,15 @@
 package com.example.pets_project.ui.theme
 
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Typography
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.example.pets_project.R
 import com.example.pets_project.ui.theme.Typography
@@ -37,6 +40,7 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp
     ),
+
     button = TextStyle(
         fontFamily = mulish,
         fontWeight = FontWeight.W700,
@@ -48,13 +52,26 @@ val Typography = Typography(
         fontSize = 12.sp
     )
 
-    /* Other default text styles to override
-    button = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W500,
-        fontSize = 14.sp
-    ),
+)
 
-    */
+val editTextBackground = TextStyle(
+    fontFamily = mulish,
+    fontWeight = FontWeight.W400,
+    fontSize = 16.sp,
+    color = Color(0xFFB3B3B3))
+
+val textButton =TextStyle(
+    color = Color.Black,
+    fontFamily = mulish,
+    fontSize = 16.sp,
+    fontWeight = FontWeight.W600
+)
+
+val switchButton= TextStyle(
+    color = Color.Black,
+    fontFamily = mulish,
+    fontSize = 16.sp,
+    fontWeight = FontWeight(700),
+    textAlign = TextAlign.Center
 )
 

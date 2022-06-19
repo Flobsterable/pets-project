@@ -20,6 +20,7 @@ import com.example.pets_project.R
 import com.example.pets_project.ui.screens.login.MarkButton
 import com.example.pets_project.ui.screens.login.TextFieldColumn
 import com.example.pets_project.ui.theme.mulish
+import com.example.pets_project.ui.theme.textButton
 
 
 @Composable
@@ -46,12 +47,7 @@ fun LoginColumn(){
             onClick = {},
             modifier = Modifier.padding(top = 50.5f.dp, start = 122.dp, end = 122.dp),
             text = AnnotatedString(stringResource(id = R.string.text_button_forgot)),
-            style = TextStyle(
-                color = Color.Black,
-                fontSize = 16.sp,
-                fontFamily = mulish,
-                fontWeight = FontWeight.W600
-            )
+            style = textButton
         )
     }
 }

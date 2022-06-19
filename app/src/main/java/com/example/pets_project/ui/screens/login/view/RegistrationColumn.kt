@@ -14,7 +14,6 @@ import com.example.pets_project.ui.screens.login.TextFieldColumn
 
 @Composable
 fun RegistrationColumn(){
-    //заглушка, поменять при привязке к VM
     var value = ""
     Column(modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally) {

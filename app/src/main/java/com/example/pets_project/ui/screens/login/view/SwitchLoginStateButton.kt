@@ -12,6 +12,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.example.pets_project.ui.theme.mulish
+import com.example.pets_project.ui.theme.switchButton
 
 @Composable
 fun SwitchLoginStateButton(stringResId: Int, modifier: Modifier = Modifier){
@@ -20,17 +21,7 @@ fun SwitchLoginStateButton(stringResId: Int, modifier: Modifier = Modifier){
         text = AnnotatedString(stringResource(id = stringResId)),
         onClick = {},
         modifier = modifier.fillMaxWidth(),
-        //   .padding(start = 12.dp, bottom = 7.dp),
-        //  .align(Alignment.CenterHorizontally),
-        style = TextStyle(
-            color = MaterialTheme.colors.onSecondary,
-            fontFamily = mulish,
-            fontSize = 16.sp,
-            fontWeight = FontWeight(700),
-            textAlign = TextAlign.Center
-        ),
+        style = switchButton,
     )
-//        Spacer(modifier = Modifier.fillMaxWidth().height(5.dp).background(MaterialTheme.colors.primary))
-    //Divider(color = MaterialTheme.colors.primary, thickness = 5.dp)
 
 }

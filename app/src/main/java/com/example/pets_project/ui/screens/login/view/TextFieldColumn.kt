@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pets_project.R
 import com.example.pets_project.ui.theme.PetsprojectTheme
+import com.example.pets_project.ui.theme.editTextBackground
 import com.example.pets_project.ui.theme.mulish
 
 @Preview(showBackground = true)
@@ -56,11 +57,7 @@ fun TextFieldColumn(modifier: Modifier,
                 onValueChange = { value = ""},
                 placeholder = {
                     Text(text = stringResource(id = placeholderIdString),
-                            style = TextStyle(
-                                fontFamily = mulish,
-                                fontWeight = FontWeight.W400,
-                                fontSize = 16.sp,
-                                color = MaterialTheme.colors.onBackground)
+                            style = editTextBackground
                     )
                 },
                 maxLines = 1,

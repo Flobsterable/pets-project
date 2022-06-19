@@ -23,6 +23,7 @@ import com.example.pets_project.ui.screens.login.view.LoginColumn
 import com.example.pets_project.ui.screens.login.view.RegistrationColumn
 import com.example.pets_project.ui.screens.login.view.SwitchLoginStateButton
 import com.example.pets_project.ui.theme.mulish
+import com.example.pets_project.ui.theme.textButton
 
 
 @Composable
@@ -47,7 +48,6 @@ fun SwitchLoginStateRow(){
     Column(modifier = Modifier.padding(start = 32.dp, end = 32.dp)) {
         Row(modifier = Modifier
             .fillMaxWidth()){
-            //.padding(start = 32.dp, end = 32.dp)) {
             SwitchLoginStateButton(stringResId = R.string.switch_login,
                 modifier = Modifier.weight(1.0f))
             SwitchLoginStateButton(stringResId = R.string.switch_registration,
@@ -56,7 +56,8 @@ fun SwitchLoginStateRow(){
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 13.dp), verticalAlignment = Alignment.Bottom) {
+                .padding(top = 13.dp),
+            verticalAlignment = Alignment.Bottom) {
             Spacer(modifier = Modifier
                 .fillMaxWidth()
                 .weight(1.0f)
@@ -77,8 +78,10 @@ fun ImageHeader(){
     Box(modifier = Modifier
         .fillMaxWidth()
          ){
-        Image(painter = painterResource(id = R.drawable.logo_header), contentDescription ="Logo Header",
-        modifier = Modifier.padding(top = 56.dp, bottom = 44.dp, start = 104.dp, end = 104.dp))
+        Image(painter = painterResource(id = R.drawable.logo_header), 
+              contentDescription = stringResource(id = R.string.cd_logo_header),
+              modifier = Modifier
+                  .padding(top = 56.dp, bottom = 44.dp, start = 104.dp, end = 104.dp))
     }
 }
 
@@ -93,12 +96,7 @@ fun NoLoginButton(){
             modifier = Modifier
                 .padding(top = 20.dp,bottom = 20.dp),
             text = AnnotatedString(stringResource(id = R.string.text_button_no_login)),
-            style = TextStyle(
-                color = MaterialTheme.colors.onSecondary,
-                fontFamily = mulish,
-                fontSize = 16.sp,
-                fontWeight = FontWeight.W600
-            )
+            style = textButton
         )
         Spacer(modifier = Modifier.padding(start = 8.dp))
         Image(
