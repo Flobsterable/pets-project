@@ -36,15 +36,17 @@ val mulish = FontFamily(
 
 val Typography = Typography(
     body1 = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
+        fontFamily = mulish,
+        fontWeight = FontWeight.W400,
+        color = Color.Black,
         fontSize = 16.sp
     ),
 
     button = TextStyle(
         fontFamily = mulish,
         fontWeight = FontWeight.W700,
-        fontSize = 16.sp
+        fontSize = 16.sp,
+        color = Color.White
     ),
     caption = TextStyle(
         fontFamily = mulish,
@@ -74,4 +76,6 @@ val switchButton= TextStyle(
     fontWeight = FontWeight(700),
     textAlign = TextAlign.Center
 )
+
+
 
