@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import com.example.pets_project.R
 import com.example.pets_project.ui.screens.login.model.LoginEvent
@@ -34,9 +35,9 @@ fun RegistrationColumn(loginViewModel: LoginViewModel) {
         TextFieldColumn(
             modifier = Modifier.padding(top = 16.dp),
             value = viewState.value!!.emailValue,
-            onValueChange ={loginViewModel.obtainEvent(LoginEvent.EmailChanged(it)) },
+            onValueChange = {loginViewModel.obtainEvent(LoginEvent.EmailChanged(it))},
             placeholderIdString = R.string.edit_text_email,
-            errorState = viewState.value!!.emailTextErrorState,
+            errorState =viewState.value!!.emailTextErrorState,
             errorMessageRegex = stringResource(id = R.string.error_email_regex),
             keyboardType = KeyboardType.Email
         )
@@ -47,7 +48,8 @@ fun RegistrationColumn(loginViewModel: LoginViewModel) {
             onValueChange ={loginViewModel.obtainEvent(LoginEvent.PassChanged(it))},
             placeholderIdString = R.string.edit_text_password,
             errorState =viewState.value!!.passTextErrorState,
-            keyboardType = KeyboardType.Password
+            keyboardType = KeyboardType.Password,
+            visualTransformation = PasswordVisualTransformation()
         )
 
         TextFieldColumn(
@@ -57,7 +59,9 @@ fun RegistrationColumn(loginViewModel: LoginViewModel) {
             placeholderIdString = R.string.edit_text_repeat_password,
             errorState = viewState.value!!.passConfirmationTextErrorState,
             errorMessageValid = stringResource(id = R.string.error_pass_con),
-            keyboardType = KeyboardType.Password
+            keyboardType = KeyboardType.Password,
+            visualTransformation = PasswordVisualTransformation()
+
         )
 
         MarkButton(

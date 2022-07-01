@@ -86,12 +86,13 @@ class LoginViewModel @Inject constructor()
         var vl = refreshErrorMessages()
         val email : String = viewState.value?.emailValue!!
 
+
         with(viewState){
         if (value?.nameValue == "")
             vl = vl.copy(nameTextErrorState = EditTextErrorState.IsEmpty)
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
-            vl = vl.copy(emailTextErrorState = EditTextErrorState.IsNotValid)
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+            vl = vl.copy(emailTextErrorState = EditTextErrorState.IsNotRegex)
 
         if (value?.passwordValue=="")
             vl = vl.copy(passTextErrorState = EditTextErrorState.IsEmpty)
@@ -99,5 +100,6 @@ class LoginViewModel @Inject constructor()
         if(value?.passwordConfirmationValue!=value?.passwordValue)
             vl = vl.copy(passConfirmationTextErrorState = EditTextErrorState.IsNotValid)
         }
+        _viewState.postValue(vl)
     }
 }
