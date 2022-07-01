@@ -1,5 +1,6 @@
 package com.example.pets_project. ui.screens.login.model
 
+import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,11 +10,6 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor()
     : ViewModel(), EventHandler<LoginEvent> {
-
-    companion object {
-        const val EMAIL_VALIDATION_REGEX = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
-                "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
-    }
 
     private val _viewState  = MutableLiveData(LoginViewState())
     val viewState : LiveData<LoginViewState> = _viewState
@@ -35,20 +31,6 @@ class LoginViewModel @Inject constructor()
         }
     }
 
-    private fun refreshErrorMessages(){
-        with(_viewState){
-            postValue(value?.copy(nameTextErrorState = EditTextErrorState.None))
-            postValue(value?.copy(emailTextErrorState = EditTextErrorState.None))
-            postValue(value?.copy(passTextErrorState = EditTextErrorState.None))
-            postValue(value?.copy(passConfirmationTextErrorState = EditTextErrorState.None))
-        }
-    }
-    private fun signActionState(loginSubState : LoginSubState){
-       _viewState.postValue(_viewState.value?.copy(loginSubState = loginSubState))
-       // refreshErrorMessages()
-     //   _viewState.postValue(_viewState.value?.copy(passwordValue = ""))
-     //  _viewState.postValue(_viewState.value?.copy(passwordConfirmationValue = ""))
-    }
 
     private fun emailChanged(value: String){
         _viewState.postValue(_viewState.value?.copy(emailValue = value))
@@ -63,41 +45,59 @@ class LoginViewModel @Inject constructor()
         _viewState.postValue(_viewState.value?.copy(nameValue = value))
     }
 
+    private fun refreshErrorMessages(): LoginViewState {
+
+        return _viewState.value?.copy(
+            nameTextErrorState = EditTextErrorState.None,
+            emailTextErrorState = EditTextErrorState.None,
+            passTextErrorState = EditTextErrorState.None,
+            passConfirmationTextErrorState = EditTextErrorState.None)!!
+
+    }
+    private fun signActionState(loginSubState : LoginSubState){
+
+        var vl = refreshErrorMessages()
+
+        vl= vl.copy(
+            passwordValue = "",
+            passwordConfirmationValue = "",
+            loginSubState = loginSubState)
+
+        _viewState.postValue(vl)
+    }
     private fun checkLoginAction(){
 
-        //пофиксить обработку
-       _viewState.postValue(_viewState.value?.copy(emailTextErrorState = EditTextErrorState.None))
-       _viewState.postValue(_viewState.value?.copy(passTextErrorState = EditTextErrorState.None))
-///////////пофиксить
-         if (!viewState.value?.emailValue!!.matches(Regex(EMAIL_VALIDATION_REGEX))){
-            _viewState.postValue(_viewState.value?.copy(
-                emailTextErrorState = EditTextErrorState.IsNotRegex))
-            println(viewState.value!!.emailTextErrorState)}
+        var vl = refreshErrorMessages()
+        val email : String = viewState.value?.emailValue!!
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+            vl = vl.copy(emailTextErrorState = EditTextErrorState.IsNotRegex)
 
         if (viewState.value?.passwordValue == "")
-            _viewState.postValue(_viewState.value?.copy(
-                passTextErrorState = EditTextErrorState.IsEmpty))
+           vl = vl.copy( passTextErrorState = EditTextErrorState.IsEmpty)
+
+        vl = vl.copy(passwordValue = "")
+
+        _viewState.postValue(vl)
     }
 
     private fun checkRegistrationAction(){
 
+        var vl = refreshErrorMessages()
+        val email : String = viewState.value?.emailValue!!
+
         with(viewState){
         if (value?.nameValue == "")
-            _viewState.postValue(_viewState.value?.copy(
-                nameTextErrorState = EditTextErrorState.IsEmpty
-            ))
-        if (value?.emailValue!!.matches(Regex(EMAIL_VALIDATION_REGEX)))
-            _viewState.postValue(_viewState.value?.copy(
-                emailTextErrorState = EditTextErrorState.IsNotValid
-            ))
+            vl = vl.copy(nameTextErrorState = EditTextErrorState.IsEmpty)
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+            vl = vl.copy(emailTextErrorState = EditTextErrorState.IsNotValid)
+
         if (value?.passwordValue=="")
-            _viewState.postValue(_viewState.value?.copy(
-                passTextErrorState = EditTextErrorState.IsEmpty
-            ))
+            vl = vl.copy(passTextErrorState = EditTextErrorState.IsEmpty)
+
         if(value?.passwordConfirmationValue!=value?.passwordValue)
-            _viewState.postValue(_viewState.value?.copy(
-                passConfirmationTextErrorState = EditTextErrorState.IsNotValid
-            ))
+            vl = vl.copy(passConfirmationTextErrorState = EditTextErrorState.IsNotValid)
         }
     }
 }
