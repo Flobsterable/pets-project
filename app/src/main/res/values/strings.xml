@@ -16,4 +16,11 @@
     <string name="cd_mark_login_button">Login button</string>
     <string name="cd_arrow_no_login_button">Without login arrow</string>
     <string name="cd_logo_header">Logo Header</string>
+    <string name="cd_pass_image_hide">Скрыть пароль</string>
+    <string name="cd_pass_image_show">Показать пароль</string>
+
+    //Error messages
+    <string name="error_empty">Поле не должно быть пустым</string>
+    <string name="error_email_regex">Неверный формат email. Пример: name@gmail.com</string>
+    <string name="error_pass_con">Не совпадает с введенным паролем</string>
 </resources>
