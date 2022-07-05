@@ -19,16 +19,17 @@ import androidx.compose.ui.unit.dp
 import com.example.pets_project.ui.screens.login.model.EditTextErrorState
 import com.example.pets_project.ui.theme.editTextBackground
 import com.example.pets_project.R
+import com.example.pets_project.ui.screens.login.model.ChangeTextCallback
 
 @Composable
 fun TextFieldColumn(
     modifier: Modifier,
-    value : String,
-    onValueChange: (String) -> Unit,
+    value: String,
+    onValueChange: ChangeTextCallback,
     placeholderIdString: Int,
     errorState: EditTextErrorState,
     errorMessageValid: String = "",
-    errorMessageRegex : String = "",
+    errorMessageRegex: String = "",
     keyboardType: KeyboardType,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     visiblePassword: Boolean = true

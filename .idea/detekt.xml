@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DetektProjectConfiguration">
+    <enableFormatting>true</enableFormatting>
+    <enableAllRules>true</enableAllRules>
     <configPaths>C:\Users\loki5\AndroidStudioProjects\pets-project\config\detekt\detekt.yml</configPaths>
   </component>
 </project>

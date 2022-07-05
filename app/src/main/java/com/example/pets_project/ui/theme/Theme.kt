@@ -14,12 +14,12 @@ private val DarkColorPalette = darkColors(
 )
 
 private val LightColorPalette = lightColors(
-    primary = Color(0xFF35AAFF),
+    primary = Color(color = 0xFF35AAFF),
     background = Color.White,
-    error  = Color(0xFFD81852),
+    error  = Color(color = 0xFFD81852),
     onPrimary = Color.White,
     onSecondary = Color.Black,
-    onBackground = Color(0xFFB3B3B3)
+    onBackground = Color(color = 0xFFB3B3B3)
     //primaryVariant = Purple700,
     //secondary = Teal200
 
@@ -37,7 +37,8 @@ private val LightColorPalette = lightColors(
 fun PetsprojectTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable() () -> Unit
-) {
+) 
+{
     val colors = LightColorPalette
     /*val colors = if (darkTheme) {
         DarkColorPalette
@@ -49,6 +50,5 @@ fun PetsprojectTheme(
         colors = colors,
         typography = Typography,
         shapes = Shapes,
-        content = content
-    )
+        content = content)
 }
