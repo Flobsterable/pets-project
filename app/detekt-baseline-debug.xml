@@ -2,30 +2,24 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
+    <ID>EmptyDefaultConstructor:NetworkServiceImpl.kt$NetworkServiceImpl$()</ID>
+    <ID>ForbiddenVoid:ServerApi.kt$ServerApi$Void</ID>
     <ID>FunctionNaming:LoginColumn.kt$@Composable fun LoginColumn(loginViewModel: LoginViewModel)</ID>
     <ID>FunctionNaming:LoginScreen.kt$@Composable fun ImageHeader()</ID>
     <ID>FunctionNaming:LoginScreen.kt$@Composable fun LoginScreen(loginViewModel: LoginViewModel)</ID>
     <ID>FunctionNaming:LoginScreen.kt$@Composable fun NoLoginButton( onClick : (Int)-> Unit )</ID>
     <ID>FunctionNaming:LoginScreen.kt$@Preview(showBackground = true) @Composable fun DefaultPreview()</ID>
-    <ID>FunctionNaming:MarkButton.kt$@Composable fun MarkButton( onClick : () -> Unit, modifier: Modifier, stringResId : Int, painterResId : Int )</ID>
+    <ID>FunctionNaming:MarkButton.kt$@Composable fun MarkButton( onClick: ButtonActionCallback, modifier: Modifier, stringResId: Int, painterResId: Int )</ID>
     <ID>FunctionNaming:RegistrationColumn.kt$@Composable fun RegistrationColumn(loginViewModel: LoginViewModel)</ID>
-    <ID>FunctionNaming:SwitchLoginStateButton.kt$@Composable fun SwitchLoginStateButton(stringResId: Int, onClick: (Int) -> Unit, modifier: Modifier = Modifier)</ID>
-    <ID>FunctionNaming:SwitchLoginStateRow.kt$@Composable fun SwitchLoginStateRow( loginSubState: LoginSubState, clickedLoginText: (Int) -> Unit, clickedRegistrationText: (Int) -> Unit)</ID>
-    <ID>FunctionNaming:TextFieldColumn.kt$@Composable fun TextFieldColumn( modifier: Modifier, value : String, onValueChange: (String) -> Unit, placeholderIdString: Int, errorState: EditTextErrorState, errorMessageValid: String = "", errorMessageRegex : String = "", keyboardType: KeyboardType, visualTransformation: VisualTransformation = VisualTransformation.None, visiblePassword: Boolean = true )</ID>
+    <ID>FunctionNaming:SwitchLoginStateButton.kt$@Composable fun SwitchLoginStateButton( stringResId: Int, onClick: TextActionCallback, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:SwitchLoginStateRow.kt$@Composable fun SwitchLoginStateRow( loginSubState: LoginSubState, clickedLoginText: TextActionCallback, clickedRegistrationText: TextActionCallback )</ID>
+    <ID>FunctionNaming:TextFieldColumn.kt$@Composable fun TextFieldColumn( modifier: Modifier, value: String, onValueChange: ChangeTextCallback, placeholderIdString: Int, errorState: EditTextErrorState, errorMessageValid: String = "", errorMessageRegex: String = "", keyboardType: KeyboardType, visualTransformation: VisualTransformation = VisualTransformation.None, visiblePassword: Boolean = true )</ID>
     <ID>FunctionNaming:Theme.kt$@Composable fun PetsprojectTheme( darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit )</ID>
-    <ID>LongParameterList:TextFieldColumn.kt$( modifier: Modifier, value : String, onValueChange: (String) -> Unit, placeholderIdString: Int, errorState: EditTextErrorState, errorMessageValid: String = "", errorMessageRegex : String = "", keyboardType: KeyboardType, visualTransformation: VisualTransformation = VisualTransformation.None, visiblePassword: Boolean = true )</ID>
-    <ID>MagicNumber:Color.kt$0xFF03DAC5</ID>
-    <ID>MagicNumber:Color.kt$0xFF3700B3</ID>
-    <ID>MagicNumber:Color.kt$0xFF6200EE</ID>
-    <ID>MagicNumber:Color.kt$0xFFB3B3B3</ID>
-    <ID>MagicNumber:Color.kt$0xFFBB86FC</ID>
-    <ID>MagicNumber:Theme.kt$0xFF35AAFF</ID>
-    <ID>MagicNumber:Theme.kt$0xFFB3B3B3</ID>
-    <ID>MagicNumber:Theme.kt$0xFFD81852</ID>
-    <ID>MagicNumber:Type.kt$0xFFB3B3B3</ID>
-    <ID>MagicNumber:Type.kt$400</ID>
-    <ID>MagicNumber:Type.kt$700</ID>
-    <ID>NewLineAtEndOfFile:App.kt$com.example.pets_project.App.kt</ID>
+    <ID>FunctionOnlyReturningConstant:NetworkServiceImpl.kt$NetworkServiceImpl$private fun getBaseUr(): String</ID>
+    <ID>LongParameterList:TextFieldColumn.kt$( modifier: Modifier, value: String, onValueChange: ChangeTextCallback, placeholderIdString: Int, errorState: EditTextErrorState, errorMessageValid: String = "", errorMessageRegex: String = "", keyboardType: KeyboardType, visualTransformation: VisualTransformation = VisualTransformation.None, visiblePassword: Boolean = true )</ID>
+    <ID>MagicNumber:NetworkServiceImpl.kt$NetworkServiceImpl$200</ID>
+    <ID>NewLineAtEndOfFile:AppModule.kt$com.example.pets_project.di.AppModule.kt</ID>
+    <ID>NewLineAtEndOfFile:CallbackTypes.kt$com.example.pets_project.ui.screens.login.model.CallbackTypes.kt</ID>
     <ID>NewLineAtEndOfFile:Color.kt$com.example.pets_project.ui.theme.Color.kt</ID>
     <ID>NewLineAtEndOfFile:EventHandler.kt$com.example.pets_project.ui.screens.login.model.EventHandler.kt</ID>
     <ID>NewLineAtEndOfFile:LoginColumn.kt$com.example.pets_project.ui.screens.login.view.LoginColumn.kt</ID>
@@ -33,11 +27,18 @@
     <ID>NewLineAtEndOfFile:LoginScreen.kt$com.example.pets_project.ui.screens.login.LoginScreen.kt</ID>
     <ID>NewLineAtEndOfFile:LoginViewModel.kt$com.example.pets_project.ui.screens.login.model.LoginViewModel.kt</ID>
     <ID>NewLineAtEndOfFile:MarkButton.kt$com.example.pets_project.ui.screens.login.view.MarkButton.kt</ID>
+    <ID>NewLineAtEndOfFile:NetworkService.kt$com.example.pets_project.services.network.NetworkService.kt</ID>
+    <ID>NewLineAtEndOfFile:NetworkServiceImpl.kt$com.example.pets_project.services.network.NetworkServiceImpl.kt</ID>
     <ID>NewLineAtEndOfFile:RegistrationColumn.kt$com.example.pets_project.ui.screens.login.view.RegistrationColumn.kt</ID>
+    <ID>NewLineAtEndOfFile:Repository.kt$com.example.pets_project.repository.Repository.kt</ID>
+    <ID>NewLineAtEndOfFile:RepositoryImpl.kt$com.example.pets_project.repository.RepositoryImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:ServerApi.kt$com.example.pets_project.services.network.ServerApi.kt</ID>
     <ID>NewLineAtEndOfFile:Shape.kt$com.example.pets_project.ui.theme.Shape.kt</ID>
-    <ID>NewLineAtEndOfFile:TextFieldColumn.kt$com.example.pets_project.ui.screens.login.view.TextFieldColumn.kt</ID>
     <ID>NewLineAtEndOfFile:Theme.kt$com.example.pets_project.ui.theme.Theme.kt</ID>
+    <ID>NewLineAtEndOfFile:UserLoginData.kt$com.example.pets_project.services.network.models.UserLoginData.kt</ID>
     <ID>PackageNaming:App.kt$package com.example.pets_project</ID>
+    <ID>PackageNaming:AppModule.kt$package com.example.pets_project.di</ID>
+    <ID>PackageNaming:CallbackTypes.kt$package com.example.pets_project.ui.screens.login.model</ID>
     <ID>PackageNaming:Color.kt$package com.example.pets_project.ui.theme</ID>
     <ID>PackageNaming:EventHandler.kt$package com.example.pets_project.ui.screens.login.model</ID>
     <ID>PackageNaming:LoginColumn.kt$package com.example.pets_project.ui.screens.login.view</ID>
@@ -47,13 +48,20 @@
     <ID>PackageNaming:LoginViewState.kt$package com.example.pets_project.ui.screens.login.model</ID>
     <ID>PackageNaming:MainActivity.kt$package com.example.pets_project</ID>
     <ID>PackageNaming:MarkButton.kt$package com.example.pets_project.ui.screens.login.view</ID>
+    <ID>PackageNaming:NetworkService.kt$package com.example.pets_project.services.network</ID>
+    <ID>PackageNaming:NetworkServiceImpl.kt$package com.example.pets_project.services.network</ID>
     <ID>PackageNaming:RegistrationColumn.kt$package com.example.pets_project.ui.screens.login.view</ID>
+    <ID>PackageNaming:Repository.kt$package com.example.pets_project.repository</ID>
+    <ID>PackageNaming:RepositoryImpl.kt$package com.example.pets_project.repository</ID>
+    <ID>PackageNaming:ServerApi.kt$package com.example.pets_project.services.network</ID>
     <ID>PackageNaming:Shape.kt$package com.example.pets_project.ui.theme</ID>
     <ID>PackageNaming:SwitchLoginStateButton.kt$package com.example.pets_project.ui.screens.login.view</ID>
     <ID>PackageNaming:SwitchLoginStateRow.kt$package com.example.pets_project.ui.screens.login.view</ID>
     <ID>PackageNaming:TextFieldColumn.kt$package com.example.pets_project.ui.screens.login.view</ID>
     <ID>PackageNaming:Theme.kt$package com.example.pets_project.ui.theme</ID>
     <ID>PackageNaming:Type.kt$package com.example.pets_project.ui.theme</ID>
+    <ID>PackageNaming:UserLoginData.kt$package com.example.pets_project.services.network.models</ID>
+    <ID>PackageNaming:UserTokenResponse.kt$package com.example.pets_project.services.network.models</ID>
     <ID>UnsafeCallOnNullableType:LoginColumn.kt$viewState.value!!</ID>
     <ID>UnsafeCallOnNullableType:LoginScreen.kt$viewState.value!!</ID>
     <ID>UnsafeCallOnNullableType:LoginViewModel.kt$LoginViewModel$_viewState.value?.copy( nameTextErrorState = EditTextErrorState.None, emailTextErrorState = EditTextErrorState.None, passTextErrorState = EditTextErrorState.None, passConfirmationTextErrorState = EditTextErrorState.None)!!</ID>
@@ -63,6 +71,7 @@
     <ID>UnusedPrivateMember:Theme.kt$darkTheme: Boolean = isSystemInDarkTheme()</ID>
     <ID>UnusedPrivateMember:Theme.kt$private val DarkColorPalette = darkColors( primary = Purple200, primaryVariant = Purple700, secondary = Teal200 )</ID>
     <ID>WildcardImport:LoginScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:LoginViewModel.kt$import com.example.pets_project.ui.screens.login.model.*</ID>
     <ID>WildcardImport:SwitchLoginStateRow.kt$import androidx.compose.foundation.layout.*</ID>
     <ID>WildcardImport:TextFieldColumn.kt$import androidx.compose.material.*</ID>
   </CurrentIssues>
