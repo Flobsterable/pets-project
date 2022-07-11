@@ -1,7 +1,5 @@
 package com.example.pets_project.di
 
-import com.example.pets_project.repository.Repository
-import com.example.pets_project.repository.RepositoryImpl
 import com.example.pets_project.services.network.NetworkService
 import com.example.pets_project.services.network.NetworkServiceImpl
 import dagger.Module
@@ -19,7 +17,5 @@ object AppModule {
     @Provides
     fun provideNetwork() : NetworkService = NetworkServiceImpl()
 
-    @Singleton
-    @Provides
-    fun provideRepository(networkService: NetworkService) : Repository = RepositoryImpl(networkService)
+
 }

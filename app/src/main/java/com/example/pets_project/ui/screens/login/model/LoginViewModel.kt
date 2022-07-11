@@ -5,8 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.pets_project.repository.Repository
-import com.example.pets_project.repository.RepositoryImpl
+import com.example.pets_project.services.network.NetworkService
 import com.example.pets_project.services.network.models.UserLoginData
 import com.example.pets_project.ui.screens.login.model.*
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val repo: Repository
+    private val networkService: NetworkService
 )
     : ViewModel(), EventHandler<LoginEvent> {
 
@@ -76,7 +75,7 @@ class LoginViewModel @Inject constructor(
 
     private fun checkServer(){
         viewModelScope.launch {
-            repo.login(UserLoginData("email","pass"))
+            networkService.login(UserLoginData("email","pass"))
         }
     }
 
