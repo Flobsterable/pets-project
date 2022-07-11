@@ -20,8 +20,8 @@ class LoginViewModel @Inject constructor(
     : ViewModel(), EventHandler<LoginEvent> {
 
     private val _viewState  = MutableLiveData(LoginViewState())
-    private val viewState : LiveData<LoginViewState>
-        get() =  _viewState
+    val viewState : LiveData<LoginViewState> = _viewState
+
 
     override fun obtainEvent(event : LoginEvent) {
         when(event) {

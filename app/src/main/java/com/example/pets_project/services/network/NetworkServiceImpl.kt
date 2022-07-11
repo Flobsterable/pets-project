@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit
 class NetworkServiceImpl : NetworkService
 {
 
-    private fun getBaseUr(): String = "http://pets.project.issart.com/api/1.0.0/"
+    private fun getBaseUr(): String = "https://pets.project.issart.com/api/1.0.0/"
     private val gson = GsonConverterFactory.create(GsonBuilder().create())
 
     private val client = OkHttpClient.Builder()
