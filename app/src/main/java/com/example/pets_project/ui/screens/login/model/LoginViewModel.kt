@@ -4,23 +4,30 @@ import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.pets_project.services.network.NetworkService
+import com.example.pets_project.services.network.models.UserLoginData
 import com.example.pets_project.ui.screens.login.model.*
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor()
+class LoginViewModel @Inject constructor(
+    private val networkService: NetworkService
+)
     : ViewModel(), EventHandler<LoginEvent> {
 
     private val _viewState  = MutableLiveData(LoginViewState())
     val viewState : LiveData<LoginViewState> = _viewState
+
 
     override fun obtainEvent(event : LoginEvent) {
         when(event) {
             LoginEvent.SignInClicked -> signActionState(LoginSubState.Login)
             LoginEvent.SignUpClicked -> signActionState(LoginSubState.Registration)
             LoginEvent.ForgotButtonClicked -> TODO()
-            LoginEvent.LoginButtonClicked -> checkLoginAction()
+            LoginEvent.LoginButtonClicked -> checkServer()
             LoginEvent.RegistrationButtonClicked -> checkRegistrationAction()
             LoginEvent.SignWOLoginClicked -> TODO()
 
@@ -65,6 +72,13 @@ class LoginViewModel @Inject constructor()
 
         _viewState.postValue(vl)
     }
+
+    private fun checkServer(){
+        viewModelScope.launch {
+            networkService.login(UserLoginData("email","pass"))
+        }
+    }
+
     private fun checkLoginAction() {
 
         var vl = refreshErrorMessages()
@@ -79,6 +93,9 @@ class LoginViewModel @Inject constructor()
         vl = vl.copy(passwordValue = "")
 
         _viewState.postValue(vl)
+
+
+
     }
 
     private fun checkRegistrationAction() {
