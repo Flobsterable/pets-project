@@ -1,6 +1,7 @@
 package com.example.pets_project.ui.screens.login.view
 
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -41,6 +42,7 @@ fun LoginColumn(loginViewModel: LoginViewModel) {
             onValueChange ={loginViewModel.obtainEvent(LoginEvent.PassChanged(it))},
             placeholderIdString = R.string.edit_text_password,
             errorState = viewState.value!!.passTextErrorState,
+            errorMessageValid = stringResource(id = R.string.error_pass_valid),
             keyboardType = KeyboardType.Password,
             visualTransformation = PasswordVisualTransformation()
         )

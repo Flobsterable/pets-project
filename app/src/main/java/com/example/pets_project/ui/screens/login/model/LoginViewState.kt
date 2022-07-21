@@ -9,6 +9,10 @@ enum class EditTextErrorState{
     IsEmpty, IsNotValid, None, IsNotRegex
 }
 
+enum class AuthorizationResponse{
+    Ok, WrongAccount, ExistingAccount
+}
+
 data class LoginViewState (
     val loginSubState: LoginSubState = LoginSubState.Login,
     val emailValue : String = "",

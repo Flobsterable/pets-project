@@ -43,6 +43,7 @@ class NetworkServiceImpl : NetworkService
 
     override suspend fun login(userLoginData: UserLoginData): UserTokenResponse? {
 
+
       val healthCheckResponse = networkService.healthCheck()
         when(healthCheckResponse.code()) {
             200 -> Log.e("network","OK")

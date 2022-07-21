@@ -1,10 +1,14 @@
 package com.example.pets_project.di
 
+import android.content.Context
+import com.example.pets_project.repository.Repository
+import com.example.pets_project.repository.RepositoryImpl
 import com.example.pets_project.services.network.NetworkService
 import com.example.pets_project.services.network.NetworkServiceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -17,5 +21,10 @@ object AppModule {
     @Provides
     fun provideNetwork() : NetworkService = NetworkServiceImpl()
 
-
+    @Singleton
+    @Provides
+    fun provideRepository(
+        @ApplicationContext
+        appContext: Context,
+    ) : Repository = RepositoryImpl(appContext)
 }
