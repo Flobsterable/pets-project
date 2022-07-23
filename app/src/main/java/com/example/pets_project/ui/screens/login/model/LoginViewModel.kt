@@ -1,4 +1,4 @@
-package com.example.pets_project. ui.screens.login.model
+package com.example.pets_project.ui.screens.login.model
 
 import android.util.Log
 import android.util.Patterns
@@ -18,15 +18,14 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val networkService: NetworkService,
     private val repository: Repository
-)
-    : ViewModel(), EventHandler<LoginEvent> {
+) :
+    ViewModel(), EventHandler<LoginEvent> {
 
-    private val _viewState  = MutableLiveData(LoginViewState())
-    val viewState : LiveData<LoginViewState> = _viewState
+    private val _viewState = MutableLiveData(LoginViewState())
+    val viewState: LiveData<LoginViewState> = _viewState
 
-
-    override fun obtainEvent(event : LoginEvent) {
-        when(event) {
+    override fun obtainEvent(event: LoginEvent) {
+        when (event) {
             LoginEvent.SignInClicked -> signActionState(LoginSubState.Login)
             LoginEvent.SignUpClicked -> signActionState(LoginSubState.Registration)
             LoginEvent.ForgotButtonClicked -> TODO()
@@ -41,7 +40,6 @@ class LoginViewModel @Inject constructor(
         }
     }
 
-
     private fun emailChanged(value: String) {
         _viewState.postValue(_viewState.value?.copy(emailValue = value))
     }
@@ -51,7 +49,7 @@ class LoginViewModel @Inject constructor(
     private fun passConfirmationChanged(value: String) {
         _viewState.postValue(_viewState.value?.copy(passwordConfirmationValue = value))
     }
-    private fun nameChanged(value : String) {
+    private fun nameChanged(value: String) {
         _viewState.postValue(_viewState.value?.copy(nameValue = value))
     }
 
@@ -61,22 +59,21 @@ class LoginViewModel @Inject constructor(
             nameTextErrorState = EditTextErrorState.None,
             emailTextErrorState = EditTextErrorState.None,
             passTextErrorState = EditTextErrorState.None,
-            passConfirmationTextErrorState = EditTextErrorState.None)!!
-
+            passConfirmationTextErrorState = EditTextErrorState.None
+        )!!
     }
-    private fun signActionState(loginSubState : LoginSubState) {
+    private fun signActionState(loginSubState: LoginSubState) {
 
         var vl = refreshErrorMessages()
 
-        vl= vl.copy(
+        vl = vl.copy(
             passwordValue = "",
             passwordConfirmationValue = "",
-            loginSubState = loginSubState)
+            loginSubState = loginSubState
+        )
 
         _viewState.postValue(vl)
     }
-
-
 
     private fun signIn() {
         viewModelScope.launch {
@@ -86,14 +83,16 @@ class LoginViewModel @Inject constructor(
                     viewState.value!!.passwordValue
                 )
             )
-            if (token!=null){
-                repository.saveToken(token.accessToken,token.refreshToken)
-            }else{
-                var vl = refreshErrorMessages()
-                vl = vl.copy(passTextErrorState = EditTextErrorState.IsNotValid)
-                _viewState.postValue(vl)
 
-                Log.e("error","неверный логин или пароль")
+            when (token) {
+                null -> {
+                    var vl = refreshErrorMessages()
+                    vl = vl.copy(passTextErrorState = EditTextErrorState.IsNotValid)
+                    _viewState.postValue(vl)
+
+                    Log.e("error", "неверный логин или пароль")
+                }
+                else -> repository.saveToken(token.accessToken, token.refreshToken)
             }
         }
     }
@@ -101,27 +100,27 @@ class LoginViewModel @Inject constructor(
     private fun checkLoginAction() {
 
         var vl = refreshErrorMessages()
-        val email : String = viewState.value?.emailValue!!
+        val email: String = viewState.value?.emailValue!!
         var isFieldError = false
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             vl = vl.copy(emailTextErrorState = EditTextErrorState.IsNotRegex)
-            isFieldError = true}
+            isFieldError = true
+        }
 
-        if (viewState.value?.passwordValue == ""){
-           vl = vl.copy( passTextErrorState = EditTextErrorState.IsEmpty)
-            isFieldError = true}
+        if (viewState.value?.passwordValue == "") {
+            vl = vl.copy(passTextErrorState = EditTextErrorState.IsEmpty)
+            isFieldError = true
+        }
 
         vl = vl.copy(passwordValue = "")
 
         _viewState.postValue(vl)
 
-
-        if(!isFieldError) {
+        if (!isFieldError) {
 
             signIn()
         }
-
     }
 
     private fun signUp() {
@@ -133,12 +132,13 @@ class LoginViewModel @Inject constructor(
                     viewState.value!!.emailValue
                 )
             )
-            if (token!=null){
-                repository.saveToken(token.accessToken,token.refreshToken)
-            }else{
-                var vl = refreshErrorMessages()
-                vl = vl.copy(emailTextErrorState = EditTextErrorState.IsNotValid)
-                _viewState.postValue(vl)
+            when (token) {
+                null -> {
+                    var vl = refreshErrorMessages()
+                    vl = vl.copy(emailTextErrorState = EditTextErrorState.IsNotValid)
+                    _viewState.postValue(vl)
+                }
+                else -> repository.saveToken(token.accessToken, token.refreshToken)
             }
         }
     }
@@ -150,27 +150,30 @@ class LoginViewModel @Inject constructor(
         var isFieldError = false
 
         with(viewState) {
-        if (value?.nameValue == ""){
-            vl = vl.copy(nameTextErrorState = EditTextErrorState.IsEmpty)
-            isFieldError = true}
+            if (value?.nameValue == "") {
+                vl = vl.copy(nameTextErrorState = EditTextErrorState.IsEmpty)
+                isFieldError = true
+            }
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            vl = vl.copy(emailTextErrorState = EditTextErrorState.IsNotRegex)
-            isFieldError = true}
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                vl = vl.copy(emailTextErrorState = EditTextErrorState.IsNotRegex)
+                isFieldError = true
+            }
 
-        if (value?.passwordValue==""){
-            vl = vl.copy(passTextErrorState = EditTextErrorState.IsEmpty)
-            isFieldError = true}
+            if (value?.passwordValue == "") {
+                vl = vl.copy(passTextErrorState = EditTextErrorState.IsEmpty)
+                isFieldError = true
+            }
 
-        if(value?.passwordConfirmationValue!=value?.passwordValue){
-            vl = vl.copy(passConfirmationTextErrorState = EditTextErrorState.IsNotValid)
-            isFieldError = true}
+            if (value?.passwordConfirmationValue != value?.passwordValue) {
+                vl = vl.copy(passConfirmationTextErrorState = EditTextErrorState.IsNotValid)
+                isFieldError = true
+            }
         }
         _viewState.postValue(vl)
 
-        if(!isFieldError){
+        if (!isFieldError) {
             signUp()
         }
-
     }
 }
