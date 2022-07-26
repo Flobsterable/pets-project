@@ -22,5 +22,12 @@
     //Error messages
     <string name="error_empty">Поле не должно быть пустым</string>
     <string name="error_email_regex">Неверный формат email. Пример: name@gmail.com</string>
+    <string name="error_email_valid">Пользователь с таким email уже существует</string>
+    <string name="error_pass_valid">Неверная комбинация email адреса и пароля</string>
     <string name="error_pass_con">Не совпадает с введенным паролем</string>
+
+
+    <string name="SHARED_PREFERENCE">APP_PREFERENCE</string>
+    <string name="ACCESS_TOKEN">ACCESS_TOKEN</string>
+    <string name="REFRESH_TOKEN">REFRESH_TOKEN</string>
 </resources>

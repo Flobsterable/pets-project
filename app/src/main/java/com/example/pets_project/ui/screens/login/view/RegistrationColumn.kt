@@ -38,6 +38,7 @@ fun RegistrationColumn(loginViewModel: LoginViewModel) {
             onValueChange = {loginViewModel.obtainEvent(LoginEvent.EmailChanged(it))},
             placeholderIdString = R.string.edit_text_email,
             errorState =viewState.value!!.emailTextErrorState,
+            errorMessageValid = stringResource(id = R.string.error_email_valid),
             errorMessageRegex = stringResource(id = R.string.error_email_regex),
             keyboardType = KeyboardType.Email
         )

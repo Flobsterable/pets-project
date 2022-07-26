@@ -7,6 +7,6 @@ import retrofit2.Response
 
 interface NetworkService {
 
-    suspend fun login( userLoginData: UserLoginData): UserTokenResponse?
+    suspend fun login(userLoginData: UserLoginData): UserTokenResponse?
     suspend fun registration(userRegistrationData: UserRegistrationData): UserTokenResponse?
 }
