@@ -32,4 +32,11 @@ class RepositoryImpl @Inject constructor(
     override fun getRefreshToken(): String {
         return preferences.getString(KEY_REFRESH_TOKEN, "")!!
     }
+
+    override fun isHasAuthToken(): Boolean {
+        return when (preferences.getString(KEY_ACCESS_TOKEN, "")) {
+            "" -> false
+            else -> true
+        }
+    }
 }
