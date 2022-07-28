@@ -6,6 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.pets_project.navigation.AppNavigation
+import com.example.pets_project.navigation.model.AppScreens
 import com.example.pets_project.repository.Repository
 import com.example.pets_project.services.network.NetworkService
 import com.example.pets_project.services.network.models.UserLoginData
@@ -17,7 +19,8 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val networkService: NetworkService,
-    private val repository: Repository
+    private val repository: Repository,
+    private val navigation: AppNavigation
 ) :
     ViewModel(), EventHandler<LoginEvent> {
 
@@ -92,11 +95,13 @@ class LoginViewModel @Inject constructor(
 
                     Log.e("error", "неверный логин или пароль")
                 }
-                else -> repository.saveToken(token.accessToken, token.refreshToken)
+                else -> {
+                    repository.saveToken(token.accessToken, token.refreshToken)
+                    navigation.navigateTo(AppScreens.MainScreen)
+                }
             }
         }
     }
-
     private fun checkLoginAction() {
 
         var vl = refreshErrorMessages()
@@ -138,11 +143,13 @@ class LoginViewModel @Inject constructor(
                     vl = vl.copy(emailTextErrorState = EditTextErrorState.IsNotValid)
                     _viewState.postValue(vl)
                 }
-                else -> repository.saveToken(token.accessToken, token.refreshToken)
+                else -> {
+                    repository.saveToken(token.accessToken, token.refreshToken)
+                    navigation.navigateTo(AppScreens.MainScreen)
+                }
             }
         }
     }
-
     private fun checkRegistrationAction() {
 
         var vl = refreshErrorMessages()
