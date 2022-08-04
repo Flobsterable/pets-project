@@ -12,7 +12,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import com.example.pets_project.R
 import com.example.pets_project.ui.screens.login.model.LoginEvent
-import com.example.pets_project.ui.screens.login.model.LoginViewModel
+import com.example.pets_project.viewModels.LoginViewModel
 
 @Composable
 fun RegistrationColumn(loginViewModel: LoginViewModel) {

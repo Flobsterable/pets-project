@@ -1,4 +1,4 @@
-package com.example.pets_project.ui.screens.login.model
+package com.example.pets_project.viewModels
 
 import android.util.Log
 import android.util.Patterns
@@ -12,6 +12,8 @@ import com.example.pets_project.repository.Repository
 import com.example.pets_project.services.network.NetworkService
 import com.example.pets_project.services.network.models.UserLoginData
 import com.example.pets_project.services.network.models.UserRegistrationData
+import com.example.pets_project.ui.screens.login.model.*
+import com.example.pets_project.utils.EventHandler
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -15,16 +15,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import com.example.pets_project.ui.screens.login.model.EditTextErrorState
-import com.example.pets_project.ui.theme.editTextBackground
 import com.example.pets_project.R
-import com.example.pets_project.ui.screens.login.model.ChangeTextCallback
+import com.example.pets_project.ui.screens.login.model.EditTextErrorState
+import com.example.pets_project.utils.StringCallback
+import com.example.pets_project.ui.theme.editTextBackground
 
 @Composable
 fun TextFieldColumn(
     modifier: Modifier,
     value: String,
-    onValueChange: ChangeTextCallback,
+    onValueChange: StringCallback,
     placeholderIdString: Int,
     errorState: EditTextErrorState,
     errorMessageValid: String = "",
@@ -32,13 +32,15 @@ fun TextFieldColumn(
     keyboardType: KeyboardType,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     visiblePassword: Boolean = true
-){
+) {
     Column(modifier = modifier) {
         Card(
-            border = BorderStroke(2.dp,
-                if(errorState!= EditTextErrorState.None){MaterialTheme.colors.error}
-                else { Color.Transparent
-            }),
+            border = BorderStroke(
+                2.dp,
+                if (errorState != EditTextErrorState.None) { MaterialTheme.colors.error } else {
+                    Color.Transparent
+                }
+            ),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 32.dp, end = 32.dp)
@@ -49,8 +51,9 @@ fun TextFieldColumn(
                 value = value,
                 onValueChange = onValueChange,
                 placeholder = {
-                    Text(text = stringResource(id = placeholderIdString),
-                            style = editTextBackground
+                    Text(
+                        text = stringResource(id = placeholderIdString),
+                        style = editTextBackground
                     )
                 },
                 textStyle = MaterialTheme.typography.body1,
@@ -67,17 +70,17 @@ fun TextFieldColumn(
             )
         }
 
-            Text(
-                text = when(errorState){
-                    EditTextErrorState.None -> ""
-                    EditTextErrorState.IsEmpty -> stringResource(id = R.string.error_empty)
-                    EditTextErrorState.IsNotRegex -> errorMessageRegex
-                    EditTextErrorState.IsNotValid -> errorMessageValid
-                                       },
-                color = MaterialTheme.colors.error,
-                style = MaterialTheme.typography.caption,
-                modifier = Modifier.padding(start = 36.dp, top = 4.dp)
+        Text(
+            text = when (errorState) {
+                EditTextErrorState.None -> ""
+                EditTextErrorState.IsEmpty -> stringResource(id = R.string.error_empty)
+                EditTextErrorState.IsNotRegex -> errorMessageRegex
+                EditTextErrorState.IsNotValid -> errorMessageValid
+            },
+            color = MaterialTheme.colors.error,
+            style = MaterialTheme.typography.caption,
+            modifier = Modifier.padding(start = 36.dp, top = 4.dp)
 
-            )
+        )
     }
 }

@@ -1,7 +1,6 @@
 package com.example.pets_project.ui.screens.login.view
 
 
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -16,7 +15,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import com.example.pets_project.R
 import com.example.pets_project.ui.screens.login.model.LoginEvent
-import com.example.pets_project.ui.screens.login.model.LoginViewModel
+import com.example.pets_project.viewModels.LoginViewModel
 import com.example.pets_project.ui.theme.textButton
 
 

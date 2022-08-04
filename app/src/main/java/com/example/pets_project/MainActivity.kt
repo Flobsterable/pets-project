@@ -1,7 +1,6 @@
 package com.example.pets_project
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,7 +18,8 @@ import com.example.pets_project.navigation.model.loginNavGraph
 import com.example.pets_project.navigation.model.mainNavGraph
 import com.example.pets_project.repository.Repository
 import com.example.pets_project.ui.screens.login.LoginScreen
-import com.example.pets_project.ui.screens.login.model.LoginViewModel
+import com.example.pets_project.viewModels.LoginViewModel
+import com.example.pets_project.ui.screens.main.MainScreen
 import com.example.pets_project.ui.theme.PetsprojectTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
                             route = mainNavGraph
                         ) {
                             composable(route = AppScreens.MainScreen.nameScreen) {
-                                Log.e("navigation", "go to main screen")
+                                MainScreen()
                             }
                         }
                     }

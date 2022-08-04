@@ -12,6 +12,11 @@
     <string name="button_registration">Зарегистрироваться</string>
     <string name="edit_text_name">Имя</string>
 
+    //Bottom navigation
+    <string name="bn_list">Объявления</string>
+    <string name="bn_add">Создать объявление</string>
+    <string name="bn_profile">Профиль</string>
+
     //Content description
     <string name="cd_mark_login_button">Login button</string>
     <string name="cd_arrow_no_login_button">Without login arrow</string>
