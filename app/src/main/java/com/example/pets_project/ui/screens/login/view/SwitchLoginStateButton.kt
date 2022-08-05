@@ -6,13 +6,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
-import com.example.pets_project.ui.screens.login.model.TextActionCallback
+import com.example.pets_project.utils.IntCallback
 import com.example.pets_project.ui.theme.switchButton
 
 @Composable
 fun SwitchLoginStateButton(
     stringResId: Int,
-    onClick: TextActionCallback,
+    onClick: IntCallback,
     modifier: Modifier = Modifier
 ) {
     ClickableText(

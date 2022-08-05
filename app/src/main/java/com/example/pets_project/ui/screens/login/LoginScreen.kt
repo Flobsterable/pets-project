@@ -17,7 +17,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.pets_project.R
 import com.example.pets_project.ui.screens.login.model.LoginEvent
 import com.example.pets_project.ui.screens.login.model.LoginSubState
-import com.example.pets_project.ui.screens.login.model.LoginViewModel
+import com.example.pets_project.viewModels.LoginViewModel
 import com.example.pets_project.ui.screens.login.view.LoginColumn
 import com.example.pets_project.ui.screens.login.view.RegistrationColumn
 import com.example.pets_project.ui.screens.login.view.SwitchLoginStateRow

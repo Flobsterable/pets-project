@@ -10,14 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.pets_project.R
 import com.example.pets_project.ui.screens.login.model.LoginSubState
-import com.example.pets_project.ui.screens.login.model.TextActionCallback
+import com.example.pets_project.utils.IntCallback
 
 
 @Composable
 fun SwitchLoginStateRow(
     loginSubState: LoginSubState,
-    clickedLoginText: TextActionCallback,
-    clickedRegistrationText: TextActionCallback
+    clickedLoginText: IntCallback,
+    clickedRegistrationText: IntCallback
 ) {
 
     Column(modifier = Modifier.padding(start = 32.dp, end = 32.dp)) {

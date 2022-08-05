@@ -21,11 +21,11 @@
     <ID>NewLineAtEndOfFile:AppModule.kt$com.example.pets_project.di.AppModule.kt</ID>
     <ID>NewLineAtEndOfFile:CallbackTypes.kt$com.example.pets_project.ui.screens.login.model.CallbackTypes.kt</ID>
     <ID>NewLineAtEndOfFile:Color.kt$com.example.pets_project.ui.theme.Color.kt</ID>
-    <ID>NewLineAtEndOfFile:EventHandler.kt$com.example.pets_project.ui.screens.login.model.EventHandler.kt</ID>
+    <ID>NewLineAtEndOfFile:EventHandler.kt$com.example.pets_project.utils.EventHandler.kt</ID>
     <ID>NewLineAtEndOfFile:LoginColumn.kt$com.example.pets_project.ui.screens.login.view.LoginColumn.kt</ID>
     <ID>NewLineAtEndOfFile:LoginEvent.kt$com.example.pets_project.ui.screens.login.model.LoginEvent.kt</ID>
     <ID>NewLineAtEndOfFile:LoginScreen.kt$com.example.pets_project.ui.screens.login.LoginScreen.kt</ID>
-    <ID>NewLineAtEndOfFile:LoginViewModel.kt$com.example.pets_project.ui.screens.login.model.LoginViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:LoginViewModel.kt$com.example.pets_project.viewModels.LoginViewModel.kt</ID>
     <ID>NewLineAtEndOfFile:MarkButton.kt$com.example.pets_project.ui.screens.login.view.MarkButton.kt</ID>
     <ID>NewLineAtEndOfFile:NetworkService.kt$com.example.pets_project.services.network.NetworkService.kt</ID>
     <ID>NewLineAtEndOfFile:NetworkServiceImpl.kt$com.example.pets_project.services.network.NetworkServiceImpl.kt</ID>
