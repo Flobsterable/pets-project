@@ -51,7 +51,7 @@ fun MainScreenBottomBar(
                                     contentDescription = item.route
                                 )
                                 Text(
-                                    text = item.label,
+                                    text = item.label.asString(),
                                     style = bottomBarButtonSelected
                                 )
                             }
@@ -61,7 +61,7 @@ fun MainScreenBottomBar(
                                     contentDescription = item.route
                                 )
                                 Text(
-                                    text = item.label,
+                                    text = item.label.asString(),
                                     style = bottomBarButton
                                 )
                             }
