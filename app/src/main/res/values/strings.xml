@@ -1,5 +1,6 @@
 <resources>
     //App view strings
+    //Login Screen
     <string name="app_name">pets-project</string>
     <string name="button_login">Войти</string>
     <string name="switch_login">Вход</string>
@@ -11,6 +12,19 @@
     <string name="edit_text_repeat_password">Повторите пароль</string>
     <string name="button_registration">Зарегистрироваться</string>
     <string name="edit_text_name">Имя</string>
+
+    //Add Ad Screen
+    <string name="button_add_photo">Добавить фото</string>
+    <string name="button_add_address">Указать адрес</string>
+    <string name="button_done">Подтвердить</string>
+    <string name="button_place_ad">Разместить объявление</string>
+    <string name="button_pet_type_cat">Кошка</string>
+    <string name="button_pet_type_dog">Собака</string>
+    <string name="button_pet_type_other">Другое</string>
+    <string name="edit_text_ad_name">Название объявления</string>
+    <string name="edit_text_ad_description">Описание питомца</string>
+
+
 
     //Bottom navigation
     <string name="bn_list">Объявления</string>
@@ -35,4 +49,7 @@
     <string name="SHARED_PREFERENCE">APP_PREFERENCE</string>
     <string name="ACCESS_TOKEN">ACCESS_TOKEN</string>
     <string name="REFRESH_TOKEN">REFRESH_TOKEN</string>
+    <string name="cd_load_image">Добавить фото</string>
+    <string name="cd_registration">Зарегистрироваться</string>
+    <string name="tb_load_photo">Загрузите фотографию</string>
 </resources>

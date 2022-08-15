@@ -89,3 +89,11 @@ val bottomBarButton = TextStyle(
     fontWeight = FontWeight.W400,
     textAlign = TextAlign.Center
 )
+
+val topBarTitle = TextStyle(
+    color = Color.White,
+    fontFamily = mulish,
+    fontSize = 20.sp,
+    fontWeight = FontWeight.W700,
+    textAlign = TextAlign.Center
+)

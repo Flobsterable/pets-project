@@ -21,6 +21,7 @@ import com.example.pets_project.ui.screens.login.LoginScreen
 import com.example.pets_project.viewModels.LoginViewModel
 import com.example.pets_project.ui.screens.main.MainScreen
 import com.example.pets_project.ui.theme.PetsprojectTheme
+import com.example.pets_project.viewModels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -38,7 +39,6 @@ class MainActivity : ComponentActivity() {
             false -> loginNavGraph
             true -> mainNavGraph
         }
-
         setContent {
             val navController = rememberNavController()
             navigation.navHostController = navController
@@ -66,7 +66,8 @@ class MainActivity : ComponentActivity() {
                             route = mainNavGraph
                         ) {
                             composable(route = AppScreens.MainScreen.nameScreen) {
-                                MainScreen()
+                                val viewModel = hiltViewModel<MainViewModel>()
+                                MainScreen(viewModel)
                             }
                         }
                     }

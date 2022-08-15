@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/loki5/AndroidStudioProjects/pets-project/app/src/main/res/drawable/ic_arrow_button.xml" value="0.1" />
+        <entry key="..\:/Users/loki5/AndroidStudioProjects/pets-project/app/src/main/res/drawable/ic_cat_selected.xml" value="0.1" />
+        <entry key="..\:/Users/loki5/AndroidStudioProjects/pets-project/app/src/main/res/drawable/ic_dog.xml" value="0.1" />
+        <entry key="..\:/Users/loki5/AndroidStudioProjects/pets-project/app/src/main/res/drawable/ic_dog_selected.xml" value="0.1" />
+        <entry key="..\:/Users/loki5/AndroidStudioProjects/pets-project/app/src/main/res/drawable/ic_pet_cat.xml" value="0.1" />
+        <entry key="..\:/Users/loki5/AndroidStudioProjects/pets-project/app/src/main/res/drawable/ic_pet_other.xml" value="0.1" />
+        <entry key="..\:/Users/loki5/AndroidStudioProjects/pets-project/app/src/main/res/drawable/ic_pet_other_selected.xml" value="0.1" />
+        <entry key="..\:/Users/loki5/AndroidStudioProjects/pets-project/app/src/main/res/drawable/ic_white_arrow_button.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
   <component name="EntryPointsManager">
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="androidx.compose.runtime.Composable" />
+      <item index="1" class="java.lang.String" itemvalue="dagger.hilt.android.lifecycle.HiltViewModel" />
     </list>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">

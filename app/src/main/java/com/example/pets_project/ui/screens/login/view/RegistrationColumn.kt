@@ -21,12 +21,13 @@ fun RegistrationColumn(loginViewModel: LoginViewModel) {
 
     Column(
         modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally) {
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
 
         TextFieldColumn(
             modifier = Modifier.padding(top = 40.dp),
             value = viewState.value!!.nameValue,
-            onValueChange ={loginViewModel.obtainEvent(LoginEvent.NameChanged(it))},
+            onValueChange = { loginViewModel.obtainEvent(LoginEvent.NameChanged(it)) },
             placeholderIdString = R.string.edit_text_name,
             errorState = viewState.value!!.nameTextErrorState,
             keyboardType = KeyboardType.Text
@@ -35,9 +36,9 @@ fun RegistrationColumn(loginViewModel: LoginViewModel) {
         TextFieldColumn(
             modifier = Modifier.padding(top = 16.dp),
             value = viewState.value!!.emailValue,
-            onValueChange = {loginViewModel.obtainEvent(LoginEvent.EmailChanged(it))},
+            onValueChange = { loginViewModel.obtainEvent(LoginEvent.EmailChanged(it)) },
             placeholderIdString = R.string.edit_text_email,
-            errorState =viewState.value!!.emailTextErrorState,
+            errorState = viewState.value!!.emailTextErrorState,
             errorMessageValid = stringResource(id = R.string.error_email_valid),
             errorMessageRegex = stringResource(id = R.string.error_email_regex),
             keyboardType = KeyboardType.Email
@@ -46,9 +47,9 @@ fun RegistrationColumn(loginViewModel: LoginViewModel) {
         TextFieldColumn(
             modifier = Modifier.padding(top = 16.dp),
             value = viewState.value!!.passwordValue,
-            onValueChange ={loginViewModel.obtainEvent(LoginEvent.PassChanged(it))},
+            onValueChange = { loginViewModel.obtainEvent(LoginEvent.PassChanged(it)) },
             placeholderIdString = R.string.edit_text_password,
-            errorState =viewState.value!!.passTextErrorState,
+            errorState = viewState.value!!.passTextErrorState,
             keyboardType = KeyboardType.Password,
             visualTransformation = PasswordVisualTransformation()
         )
@@ -56,7 +57,7 @@ fun RegistrationColumn(loginViewModel: LoginViewModel) {
         TextFieldColumn(
             modifier = Modifier.padding(top = 16.dp),
             value = viewState.value!!.passwordConfirmationValue,
-            onValueChange ={loginViewModel.obtainEvent(LoginEvent.PassConfirmationChanged(it))},
+            onValueChange = { loginViewModel.obtainEvent(LoginEvent.PassConfirmationChanged(it)) },
             placeholderIdString = R.string.edit_text_repeat_password,
             errorState = viewState.value!!.passConfirmationTextErrorState,
             errorMessageValid = stringResource(id = R.string.error_pass_con),
@@ -66,11 +67,11 @@ fun RegistrationColumn(loginViewModel: LoginViewModel) {
         )
 
         MarkButton(
-            onClick = {loginViewModel.obtainEvent(LoginEvent.RegistrationButtonClicked)},
+            onClick = { loginViewModel.obtainEvent(LoginEvent.RegistrationButtonClicked) },
             modifier = Modifier.padding(top = 24.dp),
             stringResId = R.string.button_registration,
-            painterResId = R.drawable.ic_mark
+            painterResId = R.drawable.ic_mark,
+            contentDescriptionResId = R.string.cd_registration
         )
-
     }
 }
