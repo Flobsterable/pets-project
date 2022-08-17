@@ -1,6 +1,7 @@
 package com.example.pets_project.viewModels
 
 import android.graphics.Bitmap
+import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -35,6 +36,7 @@ class AddAdViewModel @Inject constructor(
             is AddAdEvent.NameAdChanged -> TODO()
             is AddAdEvent.TypePetChanged -> TODO()
             is AddAdEvent.PhotoChanged -> photoChanged(event.value)
+            is AddAdEvent.ChangedState -> changeState(event.value)
         }
     }
 
@@ -50,12 +52,7 @@ class AddAdViewModel @Inject constructor(
         changeState(AddAdSubState.AddAddress)
     }
 
-    private fun addPhoto(value: Bitmap) {
-
-        changeState(AddAdSubState.PhotoPreview)
-    }
-
-     fun changeState(addAdSubState: AddAdSubState) {
+     private fun changeState(addAdSubState: AddAdSubState) {
 
         var vl = _viewState.value
 
@@ -64,7 +61,13 @@ class AddAdViewModel @Inject constructor(
         _viewState.postValue(vl)
     }
 
-    private fun photoChanged(value: Bitmap) {
-        _viewState.postValue(_viewState.value?.copy(photo = value))
+    private fun photoChanged(value: Uri) {
+
+        var vl = _viewState.value
+
+        vl = vl?.copy(photo = value)
+        vl = vl?.copy(addAdSubState = AddAdSubState.PhotoPreview)
+
+        _viewState.postValue(vl)
     }
 }

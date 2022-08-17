@@ -8,9 +8,8 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val repository: Repository
-) : ViewModel()
-{
-    fun isHasAuthToken(): Boolean{
+) : ViewModel() {
+    fun isHasAuthToken(): Boolean {
         return repository.isHasAuthToken()
     }
 }
