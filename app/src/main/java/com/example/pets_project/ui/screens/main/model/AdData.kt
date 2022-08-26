@@ -1,8 +1,6 @@
 package com.example.pets_project.ui.screens.main.addAd.model
 
-enum class PetType {
-    Cat, Dog, Other
-}
+import com.example.pets_project.ui.screens.main.model.PetType
 
 data class AdData(
     val nameAd: String = "",

@@ -75,7 +75,7 @@ fun NoLoginButton(
         horizontalArrangement = Arrangement.Center,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = 64.dp)
+            .padding(bottom = 64.dp),
     ) {
         ClickableText(
             onClick = onClick,

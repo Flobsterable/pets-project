@@ -7,6 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.launch
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -40,9 +41,9 @@ fun AddPhotoColumn(addAdViewModel: AddAdViewModel) {
     }
 
     Column(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().fillMaxHeight(),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
+        horizontalAlignment = Alignment.CenterHorizontally
 
     ) {
         MarkButton(
@@ -50,7 +51,7 @@ fun AddPhotoColumn(addAdViewModel: AddAdViewModel) {
             modifier = Modifier,
             stringResId = R.string.button_add_photo,
             painterResId = R.drawable.ic_file_download,
-            contentDescriptionResId = R.string.cd_load_image
+            contentDescriptionResId = R.string.cd_add_ad_photo
         )
     }
 }

@@ -7,21 +7,21 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
+import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.example.pets_project.R
-import com.example.pets_project.ui.screens.login.model.EditTextErrorState
-import com.example.pets_project.utils.StringCallback
 import com.example.pets_project.ui.theme.editTextBackground
+import com.example.pets_project.utils.EditTextErrorState
+import com.example.pets_project.utils.StringCallback
 
 @Composable
-fun TextFieldColumn(
+fun SingleTextField(
     modifier: Modifier,
     value: String,
     onValueChange: StringCallback,
@@ -29,16 +29,15 @@ fun TextFieldColumn(
     errorState: EditTextErrorState,
     errorMessageValid: String = "",
     errorMessageRegex: String = "",
-    keyboardType: KeyboardType,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
-    visiblePassword: Boolean = true
+    keyboardType: KeyboardType
 ) {
     Column(modifier = modifier) {
         Card(
             border = BorderStroke(
                 2.dp,
-                if (errorState != EditTextErrorState.None) { MaterialTheme.colors.error } else {
-                    Color.Transparent
+                when (errorState != EditTextErrorState.None) {
+                    true -> colors.error
+                    false -> Color.Transparent
                 }
             ),
             modifier = Modifier
@@ -57,16 +56,14 @@ fun TextFieldColumn(
                     )
                 },
                 textStyle = MaterialTheme.typography.body1,
-                maxLines = 1,
+                singleLine = true,
                 colors = TextFieldDefaults.textFieldColors(
                     unfocusedIndicatorColor = Color.Transparent,
                     focusedIndicatorColor = Color.Transparent,
-                    backgroundColor = MaterialTheme.colors.background
+                    backgroundColor = colors.background
                 ),
                 shape = RoundedCornerShape(8.dp),
                 keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
-                visualTransformation = visualTransformation,
-
             )
         }
 

@@ -1,11 +1,9 @@
 package com.example.pets_project.ui.screens.login.model
 
+import com.example.pets_project.utils.EditTextErrorState
+
 enum class LoginSubState {
     Login, Registration
-}
-
-enum class EditTextErrorState {
-    IsEmpty, IsNotValid, None, IsNotRegex
 }
 
 enum class AuthorizationResponse {

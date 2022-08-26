@@ -8,11 +8,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pets_project.navigation.AppNavigation
 import com.example.pets_project.navigation.model.AppScreens
+import com.example.pets_project.navigation.model.mainNavGraph
 import com.example.pets_project.repository.Repository
 import com.example.pets_project.services.network.NetworkService
 import com.example.pets_project.services.network.models.UserLoginData
 import com.example.pets_project.services.network.models.UserRegistrationData
 import com.example.pets_project.ui.screens.login.model.*
+import com.example.pets_project.utils.EditTextErrorState
 import com.example.pets_project.utils.EventHandler
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -36,13 +38,17 @@ class LoginViewModel @Inject constructor(
             LoginEvent.ForgotButtonClicked -> TODO()
             LoginEvent.LoginButtonClicked -> checkLoginAction()
             LoginEvent.RegistrationButtonClicked -> checkRegistrationAction()
-            LoginEvent.SignWOLoginClicked -> TODO()
+            LoginEvent.SignWOLoginClicked -> signWOLogin()
 
             is LoginEvent.EmailChanged -> emailChanged(event.value)
             is LoginEvent.NameChanged -> nameChanged(event.value)
             is LoginEvent.PassChanged -> passChanged(event.value)
             is LoginEvent.PassConfirmationChanged -> passConfirmationChanged(event.value)
         }
+    }
+
+    private fun signWOLogin() {
+        navigation.navigateTo(AppScreens.MainScreen)
     }
 
     private fun emailChanged(value: String) {

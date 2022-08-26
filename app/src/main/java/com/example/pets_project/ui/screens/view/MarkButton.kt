@@ -13,13 +13,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.example.pets_project.R
-import com.example.pets_project.ui.theme.primary
-import com.example.pets_project.utils.ButtonActionCallback
+import com.example.pets_project.utils.Callback
 
 @Composable
 fun MarkButton(
-    onClick: ButtonActionCallback,
+    onClick: Callback,
     modifier: Modifier,
     stringResId: Int,
     painterResId: Int,
