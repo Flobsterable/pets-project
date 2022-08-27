@@ -52,7 +52,7 @@ fun AdDescriptionColumn(addAdViewModel: AddAdViewModel) {
             value = viewState.value!!.adName,
             onValueChange = { addAdViewModel.obtainEvent(AddAdEvent.NameAdChanged(it)) },
             placeholderIdString = R.string.edit_text_ad_name,
-            errorState = EditTextErrorState.None,
+            errorState = viewState.value!!.adNameTextErrorState,
             keyboardType = KeyboardType.Text
         )
 
@@ -62,12 +62,12 @@ fun AdDescriptionColumn(addAdViewModel: AddAdViewModel) {
             value = viewState.value!!.adDescription,
             onValueChange = { addAdViewModel.obtainEvent(AddAdEvent.DescriptionAdChanged(it)) },
             placeholderIdString = R.string.edit_text_ad_description,
-            errorState = EditTextErrorState.None,
+            errorState = viewState.value!!.adDescriptionTextErrorState,
             keyboardType = KeyboardType.Text
         )
 
         MarkButton(
-            onClick = { },
+            onClick = {addAdViewModel.obtainEvent(AddAdEvent.PlaceAd) },
             modifier = Modifier.padding(bottom = 24.dp),
             stringResId = R.string.button_place_ad,
             painterResId = R.drawable.ic_done,
