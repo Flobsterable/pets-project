@@ -20,7 +20,9 @@ import com.example.pets_project.repository.Repository
 import com.example.pets_project.ui.screens.login.LoginScreen
 import com.example.pets_project.viewModels.LoginViewModel
 import com.example.pets_project.ui.screens.main.MainScreen
+import com.example.pets_project.ui.screens.main.addAd.view.AdDescriptionColumn
 import com.example.pets_project.ui.theme.PetsprojectTheme
+import com.example.pets_project.viewModels.AddAdViewModel
 import com.example.pets_project.viewModels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

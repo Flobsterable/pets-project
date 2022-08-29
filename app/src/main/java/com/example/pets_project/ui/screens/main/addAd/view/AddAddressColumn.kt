@@ -18,12 +18,13 @@ fun AddAddressColumn(addAdViewModel: AddAdViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally,
 
     ) {
+
         MarkButton(
             onClick = { addAdViewModel.obtainEvent(AddAdEvent.ConfirmAddress) },
             modifier = Modifier,
             stringResId = R.string.button_done,
             painterResId = R.drawable.ic_done,
-            contentDescriptionResId = R.string.cd_load_image
+            contentDescriptionResId = R.string.cd_done
         )
     }
 }

@@ -32,11 +32,17 @@
     <string name="bn_profile">Профиль</string>
 
     //Content description
-    <string name="cd_mark_login_button">Login button</string>
-    <string name="cd_arrow_no_login_button">Without login arrow</string>
-    <string name="cd_logo_header">Logo Header</string>
+    <string name="cd_mark_login_button">Войти</string>
+    <string name="cd_arrow_no_login_button">Вход без регистрации</string>
+    <string name="cd_logo_header">Баннер</string>
+    <string name="cd_registration">Зарегистрироваться</string>
     <string name="cd_pass_image_hide">Скрыть пароль</string>
     <string name="cd_pass_image_show">Показать пароль</string>
+    <string name="cd_add_ad_photo">Фото для объвления</string>
+    <string name="cd_add_ad_pets_type_cat">Кошка</string>
+    <string name="cd_add_ad_pets_type_dog">Собака</string>
+    <string name="cd_add_ad_pets_type_other">Другое</string>
+    <string name="cd_add_ad_add_photo">Добавить фото</string>
 
     //Error messages
     <string name="error_empty">Поле не должно быть пустым</string>
@@ -49,7 +55,7 @@
     <string name="SHARED_PREFERENCE">APP_PREFERENCE</string>
     <string name="ACCESS_TOKEN">ACCESS_TOKEN</string>
     <string name="REFRESH_TOKEN">REFRESH_TOKEN</string>
-    <string name="cd_load_image">Добавить фото</string>
-    <string name="cd_registration">Зарегистрироваться</string>
     <string name="tb_load_photo">Загрузите фотографию</string>
+    <string name="cd_add_ad_push_ad">Разместить объявление</string>
+    <string name="cd_done">Подтвердить</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.pets_project.services.network
 
+import com.example.pets_project.services.network.models.AdData
 import com.example.pets_project.services.network.models.UserLoginData
 import com.example.pets_project.services.network.models.UserRegistrationData
 import com.example.pets_project.services.network.models.UserTokenResponse
@@ -14,11 +15,11 @@ interface ServerApi {
     suspend fun healthCheck(): Response<Void>
 
     @POST("login/email")
-    suspend fun login (@Body userLoginData: UserLoginData): Response<UserTokenResponse>
+    suspend fun login(@Body userLoginData: UserLoginData): Response<UserTokenResponse>
 
     @POST("register/email")
     suspend fun registration(@Body userRegistrationData: UserRegistrationData): Response<UserTokenResponse>
 
-
-
+    @POST("announcements")
+    suspend fun postAd(@Body adData: AdData): Response <Void>
 }

@@ -9,22 +9,33 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.example.pets_project.R
 import com.example.pets_project.ui.screens.main.addAd.model.AddAdEvent
-import com.example.pets_project.utils.ButtonActionCallback
+import com.example.pets_project.utils.Callback
 import com.example.pets_project.viewModels.AddAdViewModel
 
 @Composable
 fun PhotoReviewColumn(addAdViewModel: AddAdViewModel) {
+
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Image(bitmap = addAdViewModel.viewState.value?.photo!!.asImageBitmap(), contentDescription ="" )
+        Box(
+            modifier = Modifier.aspectRatio(1f)
+        ) {
+            AsyncImage(
+                model = addAdViewModel.viewState.value?.photo,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize(),
+                contentDescription = stringResource(id = R.string.cd_add_ad_photo)
+            )
+        }
         ArrowButton(
             onClick = { addAdViewModel.obtainEvent(AddAdEvent.AddAddress) },
             modifier = Modifier.padding(top = 158.dp),
@@ -34,7 +45,7 @@ fun PhotoReviewColumn(addAdViewModel: AddAdViewModel) {
 
 @Composable
 fun ArrowButton(
-    onClick: ButtonActionCallback,
+    onClick: Callback,
     modifier: Modifier
 ) {
     Button(

@@ -7,19 +7,16 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.remember
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.pets_project.navigation.model.AppScreens
 import com.example.pets_project.navigation.model.BottomBarItem
-import com.example.pets_project.repository.Repository
-import com.example.pets_project.ui.screens.login.LoginScreen
+import com.example.pets_project.navigation.model.loginNavGraph
 import com.example.pets_project.ui.screens.main.addAd.AddAdScreen
 import com.example.pets_project.ui.screens.main.view.MainScreenBottomBar
 import com.example.pets_project.viewModels.AddAdViewModel
-import com.example.pets_project.viewModels.LoginViewModel
 import com.example.pets_project.viewModels.MainViewModel
-import javax.inject.Inject
 
 @Composable
 fun MainScreen(mainViewModel: MainViewModel) {
@@ -63,8 +60,7 @@ fun MainScreen(mainViewModel: MainViewModel) {
                         AddAdScreen(addAdViewModel = viewModel)
                     }
                     else -> {
-                        val viewModel = hiltViewModel<LoginViewModel>()
-                        LoginScreen(loginViewModel = viewModel)
+                        mainViewModel.navigateTo(AppScreens.LoginScreen)
                     }
                 }
             }

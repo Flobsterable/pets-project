@@ -1,8 +1,11 @@
 package com.example.pets_project.ui.screens.main.addAd
 
+import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.livedata.observeAsState
@@ -23,7 +26,9 @@ fun AddAdScreen(addAdViewModel: AddAdViewModel) {
 
     Scaffold(
         topBar = {
-            TopAppBar() { AddAdTopBarTitle(viewState = viewState) }
+            TopAppBar(
+
+            ) { AddAdTopBarTitle(viewState = viewState) }
         }
     ) {
         when (viewState.value!!.addAdSubState) {

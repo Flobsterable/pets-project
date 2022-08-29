@@ -97,3 +97,10 @@ val topBarTitle = TextStyle(
     fontWeight = FontWeight.W700,
     textAlign = TextAlign.Center
 )
+
+val petsTypeButtonTextStyle = TextStyle(
+    fontFamily = mulish,
+    fontSize = 14.sp,
+    fontWeight = FontWeight.W600,
+    textAlign = TextAlign.Center
+)
