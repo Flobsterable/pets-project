@@ -90,4 +90,16 @@ class NetworkServiceImpl : NetworkService {
             else -> false
         }
     }
+
+    override suspend fun getAds(petType: String): List<AdData>? {
+        val adsListResponse = networkService.getAds(petType)
+
+        return when(adsListResponse.code()){
+            200 -> adsListResponse.body()
+            else ->{
+                Log.e("get ads","${adsListResponse.code()}")
+                null
+            }
+        }
+    }
 }

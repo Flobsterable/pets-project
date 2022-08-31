@@ -2,14 +2,18 @@ package com.example.pets_project.ui.screens.login.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.example.pets_project.R
 import com.example.pets_project.ui.screens.login.model.LoginSubState
+import com.example.pets_project.ui.theme.switchLoginButton
 import com.example.pets_project.utils.IntCallback
 
 
@@ -24,14 +28,18 @@ fun SwitchLoginStateRow(
         Row(modifier = Modifier
             .fillMaxWidth()){
 
-            SwitchLoginStateButton(
-                stringResId = R.string.switch_login,
+            ClickableText(
+                text = AnnotatedString(stringResource(id = R.string.switch_login)),
                 onClick = clickedLoginText,
-                modifier = Modifier.weight(1.0f))
-            SwitchLoginStateButton(
-                stringResId = R.string.switch_registration,
+                modifier =  Modifier.weight(1f),
+                style = switchLoginButton
+            )
+            ClickableText(
+                text = AnnotatedString(stringResource(id = R.string.switch_registration)),
                 onClick = clickedRegistrationText,
-                modifier = Modifier.weight(1.0f))
+                modifier =  Modifier.weight(1f),
+                style = switchLoginButton
+            )
         }
         Row(
             modifier = Modifier

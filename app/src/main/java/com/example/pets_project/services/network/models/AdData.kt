@@ -1,6 +1,7 @@
 package com.example.pets_project.services.network.models
 
 data class AdData(
+    val id: Int,
     val petType: String,
     val imageUrl: String,
     val title: String,

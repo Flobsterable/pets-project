@@ -14,8 +14,10 @@ import com.example.pets_project.navigation.model.AppScreens
 import com.example.pets_project.navigation.model.BottomBarItem
 import com.example.pets_project.navigation.model.loginNavGraph
 import com.example.pets_project.ui.screens.main.addAd.AddAdScreen
+import com.example.pets_project.ui.screens.main.adsList.AdsListScreen
 import com.example.pets_project.ui.screens.main.view.MainScreenBottomBar
 import com.example.pets_project.viewModels.AddAdViewModel
+import com.example.pets_project.viewModels.AdsListViewModel
 import com.example.pets_project.viewModels.MainViewModel
 
 @Composable
@@ -52,6 +54,8 @@ fun MainScreen(mainViewModel: MainViewModel) {
         ) {
             composable(route = BottomBarItem.ListTab.route) {
                 Log.e("bottom nav", "list")
+                val viewModel = hiltViewModel<AdsListViewModel>()
+                AdsListScreen(adsListViewModel = viewModel)
             }
             composable(route = BottomBarItem.AddTab.route) {
                 when (mainViewModel.isHasAuthToken()) {

@@ -18,11 +18,15 @@
     <string name="button_add_address">Указать адрес</string>
     <string name="button_done">Подтвердить</string>
     <string name="button_place_ad">Разместить объявление</string>
-    <string name="button_pet_type_cat">Кошка</string>
-    <string name="button_pet_type_dog">Собака</string>
-    <string name="button_pet_type_other">Другое</string>
     <string name="edit_text_ad_name">Название объявления</string>
     <string name="edit_text_ad_description">Описание питомца</string>
+
+    //Ad List Screen
+    <string name="text_no_ads">Объявлений пока нет</string>
+    <string name="button_pet_type_all">Все</string>
+    <string name="button_pet_type_cat">Кошки</string>
+    <string name="button_pet_type_dog">Собаки</string>
+    <string name="button_pet_type_other">Другое</string>
 
 
 
@@ -58,4 +62,6 @@
     <string name="tb_load_photo">Загрузите фотографию</string>
     <string name="cd_add_ad_push_ad">Разместить объявление</string>
     <string name="cd_done">Подтвердить</string>
+    <string name="cd_location_point">Расположение</string>
+    <string name="cd_pet_photo">Фотография питомца</string>
 </resources>
