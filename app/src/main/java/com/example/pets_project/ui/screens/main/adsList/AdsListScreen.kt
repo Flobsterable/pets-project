@@ -1,6 +1,5 @@
 package com.example.pets_project.ui.screens.main.adsList
 
-import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -13,13 +12,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.pets_project.R
 import com.example.pets_project.services.network.models.AdData
 import com.example.pets_project.ui.screens.main.adsList.model.AdsListEvent
 import com.example.pets_project.ui.screens.main.adsList.view.AdListFilterRow
 import com.example.pets_project.ui.screens.main.adsList.view.AdsListItemView
-import com.example.pets_project.ui.screens.main.model.PetType
 import com.example.pets_project.ui.theme.editTextBackground
 import com.example.pets_project.viewModels.AdsListViewModel
 
@@ -32,14 +29,14 @@ fun AdsListScreen(adsListViewModel: AdsListViewModel) {
 
     Column(
         modifier = Modifier.fillMaxSize(),
-       // horizontalAlignment = Alignment.CenterHorizontally
+        // horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
         AdListFilterRow(
             petState = viewState.value!!.petsTypeFilter,
-            onClick = {adsListViewModel.obtainEvent(AdsListEvent.ChangeFilterOption(it))}
+            onClick = { adsListViewModel.obtainEvent(AdsListEvent.ChangeFilterOption(it)) }
         )
-        when(viewState.value?.adsList?.isNotEmpty()){
+        when (viewState.value?.adsList?.isNotEmpty()) {
             true -> AdsList(adsList = viewState.value?.adsList!!)
             false -> NoAdsText()
             null -> NoAdsText()
@@ -57,19 +54,22 @@ fun AdsList(adsList: List<AdData>) {
         content = {
             items(adsList) {
                     item ->
-                AdsListItemView(adData = item) }
+                AdsListItemView(adData = item)
+            }
         }
 
     )
 }
 @Composable
-fun NoAdsText(){
+fun NoAdsText() {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center) {
+        verticalArrangement = Arrangement.Center
+    ) {
         Text(
             text = stringResource(id = R.string.text_no_ads),
-            style = editTextBackground)
+            style = editTextBackground
+        )
     }
 }

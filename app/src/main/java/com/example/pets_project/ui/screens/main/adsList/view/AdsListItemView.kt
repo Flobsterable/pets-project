@@ -1,6 +1,5 @@
 package com.example.pets_project.ui.screens.main.adsList.view
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -40,11 +39,11 @@ fun AdsListItemView(adData: AdData) {
 
             AsyncImage(
                 model = when (adData.imageUrl != "") {
-                    true ->{ adData.imageUrl }
+                    true -> { adData.imageUrl }
                     false -> painterResource(id = R.drawable.ic_empty_image)
                 },
                 contentDescription = stringResource(id = R.string.cd_pet_photo),
-                modifier = Modifier.size(177.dp,168.dp).background(Color.Black),
+                modifier = Modifier.size(177.dp, 168.dp).background(Color.Black),
                 contentScale = ContentScale.FillWidth
 
             )
@@ -67,9 +66,11 @@ fun AdsListItemView(adData: AdData) {
                         .fillMaxWidth().padding(top = 4.dp, bottom = 10.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Image(painter = painterResource(id = R.drawable.ic_location_point),
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_location_point),
                         contentDescription = stringResource(id = R.string.cd_location_point),
-                        modifier = Modifier.size(24.dp), alignment = Alignment.Center )
+                        modifier = Modifier.size(24.dp), alignment = Alignment.Center
+                    )
                     Spacer(modifier = Modifier.size(4.dp))
                     Text(
                         text = "ул. Партизана Железняка, 34/2",

@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pets_project.services.network.NetworkService
-import com.example.pets_project.ui.screens.main.addAd.model.AdData
 import com.example.pets_project.ui.screens.main.adsList.model.AdsListEvent
 import com.example.pets_project.ui.screens.main.adsList.model.AdsListViewState
 import com.example.pets_project.ui.screens.main.model.PetType
@@ -23,8 +22,7 @@ class AdsListViewModel @Inject constructor(
     val viewState: LiveData<AdsListViewState> = _viewState
 
     override fun obtainEvent(event: AdsListEvent) {
-        when(event){
-
+        when (event) {
 
             is AdsListEvent.OpenAd -> TODO()
             is AdsListEvent.ChangeFilterOption -> changeFilterOption(event.value)
@@ -37,7 +35,7 @@ class AdsListViewModel @Inject constructor(
 
     fun getAdsList() {
         viewModelScope.launch {
-            val type = when(viewState.value!!.petsTypeFilter){
+            val type = when (viewState.value!!.petsTypeFilter) {
                 PetType.Dog -> "dog"
                 PetType.Cat -> "cat"
                 PetType.Other -> "other"
@@ -48,7 +46,4 @@ class AdsListViewModel @Inject constructor(
                 _viewState.postValue(_viewState.value?.copy(adsList = adList))
         }
     }
-
-
-
 }

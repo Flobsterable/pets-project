@@ -16,28 +16,28 @@ import com.example.pets_project.ui.screens.login.model.LoginSubState
 import com.example.pets_project.ui.theme.switchLoginButton
 import com.example.pets_project.utils.IntCallback
 
-
 @Composable
 fun SwitchLoginStateRow(
     loginSubState: LoginSubState,
     clickedLoginText: IntCallback,
     clickedRegistrationText: IntCallback
 ) {
-
     Column(modifier = Modifier.padding(start = 32.dp, end = 32.dp)) {
-        Row(modifier = Modifier
-            .fillMaxWidth()){
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
 
             ClickableText(
                 text = AnnotatedString(stringResource(id = R.string.switch_login)),
                 onClick = clickedLoginText,
-                modifier =  Modifier.weight(1f),
+                modifier = Modifier.weight(1f),
                 style = switchLoginButton
             )
             ClickableText(
                 text = AnnotatedString(stringResource(id = R.string.switch_registration)),
                 onClick = clickedRegistrationText,
-                modifier =  Modifier.weight(1f),
+                modifier = Modifier.weight(1f),
                 style = switchLoginButton
             )
         }
@@ -45,38 +45,43 @@ fun SwitchLoginStateRow(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 13.dp),
-            verticalAlignment = Alignment.Bottom) {
+            verticalAlignment = Alignment.Bottom
+        ) {
 
-            when(loginSubState){
-                LoginSubState.Login ->{
-                    Divider(modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1.0f)
-                        .height(5.dp)
-                        .background(MaterialTheme.colors.primary))
-                    Divider(modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1.0f)
-                        .height(1.dp)
-                        .background(MaterialTheme.colors.primary))
+            when (loginSubState) {
+                LoginSubState.Login -> {
+                    Divider(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1.0f)
+                            .height(5.dp)
+                            .background(MaterialTheme.colors.primary)
+                    )
+                    Divider(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1.0f)
+                            .height(1.dp)
+                            .background(MaterialTheme.colors.primary)
+                    )
                 }
                 LoginSubState.Registration -> {
-                    Divider(modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1.0f)
-                        .height(1.dp)
-                        .background(MaterialTheme.colors.primary))
-                    Divider(modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1.0f)
-                        .height(5.dp)
-                        .background(MaterialTheme.colors.primary))
+                    Divider(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1.0f)
+                            .height(1.dp)
+                            .background(MaterialTheme.colors.primary)
+                    )
+                    Divider(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1.0f)
+                            .height(5.dp)
+                            .background(MaterialTheme.colors.primary)
+                    )
                 }
             }
         }
     }
 }
-
-
-
-
