@@ -64,4 +64,7 @@
     <string name="cd_done">Подтвердить</string>
     <string name="cd_location_point">Расположение</string>
     <string name="cd_pet_photo">Фотография питомца</string>
+    <string name="button_on_map">На карте</string>
+    <string name="cd_empty_image">Нет изображения</string>
+    <string name="cd_button_back">Назад</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.example.pets_project.utils
 
-import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
@@ -15,7 +14,7 @@ sealed class TextUI {
 
     @Composable
     fun asString(): String {
-        return when (this){
+        return when (this) {
             is Resource -> stringResource(id = resId)
             is ResourceParams -> stringResource(id = resId, args)
             is Simple -> text

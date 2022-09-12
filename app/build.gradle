@@ -8,6 +8,11 @@ plugins {
     //Detekt
     id "io.gitlab.arturbosch.detekt" version "1.21.0-RC2"
 
+    //Secrets Gradle Plugin
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+
+    id("kotlin-parcelize")
+
 }
 
 android {

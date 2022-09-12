@@ -9,4 +9,7 @@ class AppNavigationImpl : AppNavigation {
     override fun navigateTo(appScreen: AppScreens) {
         navHostController?.navigate(appScreen.nameScreen)
     }
+    override fun navigateTo(route: String){
+        navHostController?.navigate(route = route)
+    }
 }

@@ -6,6 +6,7 @@ const val profileBottomBarName = "ProfileTab"
 
 const val loginScreenName = "LoginScreen"
 const val mainScreenName = "MainScreen"
+const val adScreenName = "AdScreen"
 
 const val loginNavGraph = "LoginNavGraph"
 const val mainNavGraph = "MainNavGraph"
