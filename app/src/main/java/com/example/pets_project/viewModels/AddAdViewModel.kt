@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pets_project.navigation.AppNavigation
+import com.example.pets_project.navigation.model.AppScreens
 import com.example.pets_project.repository.Repository
 import com.example.pets_project.services.network.NetworkService
 import com.example.pets_project.services.network.models.AdData
@@ -37,6 +38,7 @@ class AddAdViewModel @Inject constructor(
             AddAdEvent.PlaceAd -> placeAd()
             AddAdEvent.ConfirmAddress -> confirmAddress()
             AddAdEvent.GetCurrentLocation -> TODO()
+            AddAdEvent.NavigateToMainScreen -> navigateToMainScreen()
 
             is AddAdEvent.DescriptionAdChanged -> descriptionAdChanged(event.value)
             is AddAdEvent.NameAdChanged -> nameAdChanged(event.value)
@@ -125,12 +127,23 @@ class AddAdViewModel @Inject constructor(
         changeState(AddAdSubState.AddAddress)
     }
 
-    private fun changeState(addAdSubState: AddAdSubState) {
+    private fun changeState(addAdSubState: AddAdSubState?) {
 
-        var vl = _viewState.value
+        when(addAdSubState!=null){
+            true -> {var vl = _viewState.value
 
-        vl = vl?.copy(addAdSubState = addAdSubState)
-        Log.e("change state", "$addAdSubState")
-        _viewState.postValue(vl)
+                vl = vl?.copy(addAdSubState = addAdSubState)
+                Log.e("change state", "$addAdSubState")
+                _viewState.postValue(vl)
+            }
+            false -> {
+                navigateToMainScreen()
+            }
+        }
+
+    }
+
+    private fun navigateToMainScreen() {
+        navigation.navigateTo(appScreen = AppScreens.MainScreen)
     }
 }

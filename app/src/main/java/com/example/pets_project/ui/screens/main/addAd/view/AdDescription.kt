@@ -65,10 +65,11 @@ fun AdDescriptionColumn(addAdViewModel: AddAdViewModel) {
             errorState = viewState.value!!.adDescriptionTextErrorState,
             keyboardType = KeyboardType.Text
         )
+        Spacer(modifier = Modifier.weight(1f))
 
         MarkButton(
             onClick = {addAdViewModel.obtainEvent(AddAdEvent.PlaceAd) },
-            modifier = Modifier.padding(bottom = 24.dp),
+            modifier = Modifier.padding(bottom = 80.dp).height(56.dp),
             stringResId = R.string.button_place_ad,
             painterResId = R.drawable.ic_done,
             contentDescriptionResId = R.string.cd_add_ad_push_ad

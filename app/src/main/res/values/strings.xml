@@ -14,7 +14,8 @@
     <string name="edit_text_name">Имя</string>
 
     //Add Ad Screen
-    <string name="button_add_photo">Добавить фото</string>
+    <string name="button_add_photo">Сделать фото</string>
+    <string name="button_get_image">Загрузить из галереи</string>
     <string name="button_add_address">Указать адрес</string>
     <string name="button_done">Подтвердить</string>
     <string name="button_place_ad">Разместить объявление</string>
@@ -38,7 +39,8 @@
     <string name="cd_registration">Зарегистрироваться</string>
     <string name="cd_pass_image_hide">Скрыть пароль</string>
     <string name="cd_pass_image_show">Показать пароль</string>
-    <string name="cd_add_ad_photo">Фото для объвления</string>
+    <string name="cd_add_ad_photo">Сделать фото</string>
+    <string name="cd_add_ad_get_image">Загрузить из галереи</string>
     <string name="cd_add_ad_pets_type_cat">Кошка</string>
     <string name="cd_add_ad_pets_type_dog">Собака</string>
     <string name="cd_add_ad_pets_type_other">Другое</string>
@@ -56,6 +58,8 @@
     <string name="ACCESS_TOKEN">ACCESS_TOKEN</string>
     <string name="REFRESH_TOKEN">REFRESH_TOKEN</string>
     <string name="tb_load_photo">Загрузите фотографию</string>
+    <string name="tb_add_location">Где вы видели питомца?</string>
+    <string name="tb_add_description">Опишите питомца</string>
     <string name="cd_add_ad_push_ad">Разместить объявление</string>
     <string name="cd_done">Подтвердить</string>
 </resources>
