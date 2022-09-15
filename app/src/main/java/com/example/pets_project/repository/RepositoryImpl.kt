@@ -9,7 +9,7 @@ import com.example.pets_project.services.network.models.AdData
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
-    private val appContext: Context
+    appContext: Context
 ) : Repository {
 
     private val KEY_SHARED_PREFERENCE = appContext.getString(R.string.SHARED_PREFERENCE)

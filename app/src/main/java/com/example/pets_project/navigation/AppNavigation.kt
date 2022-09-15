@@ -8,4 +8,5 @@ interface AppNavigation {
 
     fun navigateTo(appScreen: AppScreens)
     fun navigateTo(route: String)
+    fun navigateToWithArg(appScreen: AppScreens, key: String, value: Any?)
 }
