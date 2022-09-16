@@ -20,7 +20,7 @@ import com.example.pets_project.ui.theme.primary
 
 @Composable
 fun MainScreenBottomBar(
-    currentRoute: String,
+    currentRoute: String?,
     onItemClick: StringCallback
 ) {
     val items = listOf<BottomBarItem>(

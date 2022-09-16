@@ -107,6 +107,7 @@ class AddAdViewModel @Inject constructor(
         viewModelScope.launch {
             val isPostSuccess = networkService.postAd(
                 adData = AdData(
+                    id = 0,
                     petType = viewState.value?.petType.toString(),
                     imageUrl = viewState.value?.photo.toString(),
                     title = viewState.value!!.adName,

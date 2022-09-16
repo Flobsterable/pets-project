@@ -23,7 +23,7 @@ fun LoginColumn(loginViewModel: LoginViewModel) {
     val viewState = loginViewModel.viewState
     var passwordVisible by remember { mutableStateOf(false) }
 
-    fun changeVisiblePassword(){
+    fun changeVisiblePassword() {
         passwordVisible = !passwordVisible
     }
 

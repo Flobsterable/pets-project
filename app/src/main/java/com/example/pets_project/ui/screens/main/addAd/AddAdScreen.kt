@@ -1,15 +1,17 @@
 package com.example.pets_project.ui.screens.main.addAd
 
-import androidx.compose.material.IconButton
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.example.pets_project.R
 import com.example.pets_project.ui.screens.main.addAd.model.AddAdSubState
 import com.example.pets_project.ui.screens.main.addAd.model.AddAdViewState
@@ -26,9 +28,16 @@ fun AddAdScreen(addAdViewModel: AddAdViewModel) {
 
     Scaffold(
         topBar = {
-            TopAppBar(
-
-            ) { AddAdTopBarTitle(viewState = viewState) }
+            TopAppBar() {
+                IconButton(onClick = { }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_white_arrow_button),
+                        contentDescription = stringResource(id = R.string.cd_button_back),
+                        modifier = Modifier.scale(-1f, 1f).size(32.dp)
+                    )
+                }
+                AddAdTopBarTitle(viewState = viewState)
+            }
         }
     ) {
         when (viewState.value!!.addAdSubState) {
