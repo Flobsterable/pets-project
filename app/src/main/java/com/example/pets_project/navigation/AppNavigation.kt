@@ -7,4 +7,5 @@ interface AppNavigation {
     var navHostController: NavHostController?
 
     fun navigateTo(appScreen: AppScreens)
+    fun navigateTo(route: String)
 }

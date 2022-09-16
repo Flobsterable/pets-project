@@ -13,7 +13,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.pets_project.R
-import com.example.pets_project.ui.screens.main.addAd.model.AddAdEvent
 import com.example.pets_project.ui.screens.main.addAd.model.AddAdSubState
 import com.example.pets_project.ui.screens.main.addAd.model.AddAdViewState
 import com.example.pets_project.ui.screens.main.addAd.view.AdDescriptionColumn
@@ -30,9 +29,16 @@ fun AddAdScreen(addAdViewModel: AddAdViewModel) {
 
     Scaffold(
         topBar = {
-            AddAdTopBar(viewState = viewState)
-            {  addAdViewModel.obtainEvent(AddAdEvent.ChangedState(it))}
-
+            TopAppBar() {
+                IconButton(onClick = { }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_white_arrow_button),
+                        contentDescription = stringResource(id = R.string.cd_button_back),
+                        modifier = Modifier.scale(-1f, 1f).size(32.dp)
+                    )
+                }
+                AddAdTopBarTitle(viewState = viewState)
+            }
         }
     ) {
         when (viewState.value!!.addAdSubState) {

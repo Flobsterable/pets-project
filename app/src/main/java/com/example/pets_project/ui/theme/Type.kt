@@ -39,6 +39,13 @@ val Typography = Typography(
         fontSize = 16.sp
     ),
 
+    body2 = TextStyle(
+        fontFamily = mulish,
+        fontWeight = FontWeight.W400,
+        color = Color.Black,
+        fontSize = 12.sp
+    ),
+
     button = TextStyle(
         fontFamily = mulish,
         fontWeight = FontWeight.W700,
@@ -57,7 +64,7 @@ val editTextBackground = TextStyle(
     fontFamily = mulish,
     fontWeight = FontWeight.W400,
     fontSize = 16.sp,
-    color = Color(color = 0xFFB3B3B3)
+    color = gray
 )
 
 val textButton = TextStyle(
@@ -67,11 +74,19 @@ val textButton = TextStyle(
     fontWeight = FontWeight.W600
 )
 
-val switchButton = TextStyle(
+val switchLoginButton = TextStyle(
     color = Color.Black,
     fontFamily = mulish,
     fontSize = 16.sp,
     fontWeight = FontWeight.W700,
+    textAlign = TextAlign.Center
+)
+
+val switchFilterAdListButton = TextStyle(
+    color = Color.White,
+    fontFamily = mulish,
+    fontSize = 16.sp,
+    fontWeight = FontWeight.W600,
     textAlign = TextAlign.Center
 )
 
@@ -103,4 +118,18 @@ val petsTypeButtonTextStyle = TextStyle(
     fontSize = 14.sp,
     fontWeight = FontWeight.W600,
     textAlign = TextAlign.Center
+)
+
+val subText = TextStyle(
+    fontFamily = mulish,
+    fontSize = 12.sp,
+    fontWeight = FontWeight.W400,
+    color = gray
+)
+
+val adHeaderText = TextStyle(
+    color = Color.Black,
+    fontFamily = mulish,
+    fontSize = 16.sp,
+    fontWeight = FontWeight.W700
 )

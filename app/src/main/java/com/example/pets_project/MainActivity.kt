@@ -1,6 +1,7 @@
 package com.example.pets_project
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,21 +9,24 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.pets_project.navigation.AppNavigation
 import com.example.pets_project.navigation.model.AppScreens
+import com.example.pets_project.navigation.model.DETAIL_ARGUMENT_KEY
 import com.example.pets_project.navigation.model.loginNavGraph
 import com.example.pets_project.navigation.model.mainNavGraph
 import com.example.pets_project.repository.Repository
 import com.example.pets_project.ui.screens.login.LoginScreen
-import com.example.pets_project.viewModels.LoginViewModel
 import com.example.pets_project.ui.screens.main.MainScreen
-import com.example.pets_project.ui.screens.main.addAd.view.AdDescriptionColumn
+import com.example.pets_project.ui.screens.main.adsList.AdScreen
 import com.example.pets_project.ui.theme.PetsprojectTheme
-import com.example.pets_project.viewModels.AddAdViewModel
+import com.example.pets_project.viewModels.AdViewModel
+import com.example.pets_project.viewModels.LoginViewModel
 import com.example.pets_project.viewModels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -70,6 +74,16 @@ class MainActivity : ComponentActivity() {
                             composable(route = AppScreens.MainScreen.nameScreen) {
                                 val viewModel = hiltViewModel<MainViewModel>()
                                 MainScreen(viewModel)
+                            }
+                            composable(
+                                route = "${AppScreens.AdScreen.nameScreen}/{$DETAIL_ARGUMENT_KEY}",
+                                arguments = listOf(navArgument(DETAIL_ARGUMENT_KEY) { type = NavType.IntType })
+                            ) {
+                                val viewModel = hiltViewModel<AdViewModel>()
+                                Log.e("", "${navController.currentBackStackEntry?.destination}")
+                                val id = it.arguments?.getInt(DETAIL_ARGUMENT_KEY)!!.toInt()
+                                Log.e("", "$id")
+                                AdScreen(adViewModel = viewModel, id = id)
                             }
                         }
                     }

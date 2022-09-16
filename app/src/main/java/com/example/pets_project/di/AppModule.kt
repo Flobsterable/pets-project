@@ -5,6 +5,8 @@ import com.example.pets_project.navigation.AppNavigation
 import com.example.pets_project.navigation.AppNavigationImpl
 import com.example.pets_project.repository.Repository
 import com.example.pets_project.repository.RepositoryImpl
+import com.example.pets_project.services.modelParser.ModelParser
+import com.example.pets_project.services.modelParser.ModelParserImpl
 import com.example.pets_project.services.network.NetworkService
 import com.example.pets_project.services.network.NetworkServiceImpl
 import dagger.Module
@@ -19,7 +21,9 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideNetwork(): NetworkService = NetworkServiceImpl()
+    fun provideNetwork(
+        modelParser: ModelParser
+    ): NetworkService = NetworkServiceImpl(modelParser)
 
     @Singleton
     @Provides
@@ -31,4 +35,11 @@ object AppModule {
         @ApplicationContext
         appContext: Context,
     ): Repository = RepositoryImpl(appContext)
+
+    @Singleton
+    @Provides
+    fun provideModelParser(
+        @ApplicationContext
+        appContext: Context,
+    ): ModelParser = ModelParserImpl(appContext)
 }
