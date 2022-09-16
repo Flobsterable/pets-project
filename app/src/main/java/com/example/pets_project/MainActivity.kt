@@ -7,15 +7,14 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.pets_project.navigation.AppNavigation
 import com.example.pets_project.navigation.model.AppScreens
 import com.example.pets_project.navigation.model.DETAIL_ARGUMENT_KEY
@@ -24,7 +23,6 @@ import com.example.pets_project.navigation.model.mainNavGraph
 import com.example.pets_project.repository.Repository
 import com.example.pets_project.ui.screens.login.LoginScreen
 import com.example.pets_project.ui.screens.main.MainScreen
-import com.example.pets_project.ui.screens.main.addAd.model.AdViewData
 import com.example.pets_project.ui.screens.main.adsList.AdScreen
 import com.example.pets_project.ui.theme.PetsprojectTheme
 import com.example.pets_project.viewModels.AdViewModel
@@ -78,14 +76,14 @@ class MainActivity : ComponentActivity() {
                                 MainScreen(viewModel)
                             }
                             composable(
-                                route = AppScreens.AdScreen.nameScreen
+                                route = "${AppScreens.AdScreen.nameScreen}/{$DETAIL_ARGUMENT_KEY}",
+                                arguments = listOf(navArgument(DETAIL_ARGUMENT_KEY) { type = NavType.IntType })
                             ) {
                                 val viewModel = hiltViewModel<AdViewModel>()
-                                Log.e("","${navController.currentBackStackEntry?.destination}")
-                                navController.previousBackStackEntry!!.savedStateHandle
-                                    .get<AdViewData>(DETAIL_ARGUMENT_KEY).let {
-                                        AdScreen(viewModel, it)
-                                    }
+                                Log.e("", "${navController.currentBackStackEntry?.destination}")
+                                val id = it.arguments?.getInt(DETAIL_ARGUMENT_KEY)!!.toInt()
+                                Log.e("", "$id")
+                                AdScreen(adViewModel = viewModel, id = id)
                             }
                         }
                     }

@@ -5,4 +5,5 @@ import com.example.pets_project.ui.screens.main.addAd.model.AdViewData
 
 interface ModelParser {
     fun adListParser(adList: List<AdData>): List<AdViewData>
+    fun adParser(adData: AdData): AdViewData
 }

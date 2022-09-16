@@ -41,7 +41,7 @@ fun AdsListScreen(adsListViewModel: AdsListViewModel) {
             true -> AdsList(
                 adsList = viewState.value?.adsList!!
             ) {
-                adsListViewModel.obtainEvent(AdsListEvent.OpenAd(it))
+                adsListViewModel.obtainEvent(AdsListEvent.OpenAd(it.id))
             }
             false -> NoAdsText()
             null -> NoAdsText()

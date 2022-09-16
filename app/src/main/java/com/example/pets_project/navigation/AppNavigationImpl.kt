@@ -13,11 +13,4 @@ class AppNavigationImpl : AppNavigation {
     override fun navigateTo(route: String) {
         navHostController?.navigate(route = route)
     }
-    override fun navigateToWithArg(appScreen: AppScreens, key: String, value: Any?) {
-        navHostController!!.currentBackStackEntry!!.savedStateHandle.set(
-            key = key,
-            value = value
-        )
-        navHostController!!.navigate(route = appScreen.nameScreen)
-    }
 }

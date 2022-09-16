@@ -37,8 +37,9 @@ class AdsListViewModel @Inject constructor(
         }
     }
 
-    private fun openAd(value: AdViewData) {
-        navigation.navigateToWithArg(AppScreens.AdScreen, DETAIL_ARGUMENT_KEY, value)
+    private fun openAd(id: Int) {
+        navigation.navigateTo("${AppScreens.AdScreen.nameScreen}/$id")
+//        navigation.navigateToWithArg(AppScreens.AdScreen, DETAIL_ARGUMENT_KEY, id)
         Log.e("open ad", "${navigation.navHostController!!.graph}")
     }
 

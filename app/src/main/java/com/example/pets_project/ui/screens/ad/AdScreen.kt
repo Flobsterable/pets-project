@@ -17,19 +17,19 @@ import com.example.pets_project.ui.screens.ad.MapView
 import com.example.pets_project.ui.screens.ad.model.AdEvent
 import com.example.pets_project.ui.screens.ad.model.AdState
 import com.example.pets_project.ui.screens.ad.model.AdSubState
+import com.example.pets_project.ui.screens.ad.view.AdEmptyColumn
 import com.example.pets_project.ui.screens.ad.view.AdScreenColumn
 import com.example.pets_project.ui.screens.ad.view.ImageView
-import com.example.pets_project.ui.screens.main.addAd.model.AdViewData
 import com.example.pets_project.ui.theme.topBarTitle
 import com.example.pets_project.viewModels.AdViewModel
 
 @Composable
-fun AdScreen(adViewModel: AdViewModel, data: AdViewData?) {
+fun AdScreen(adViewModel: AdViewModel, id: Int) {
 
     val viewState = adViewModel.viewState.observeAsState()
 
     LaunchedEffect(key1 = Unit, block = {
-        adViewModel.obtainEvent(AdEvent.SaveData(data!!))
+        adViewModel.obtainEvent(AdEvent.GetViewData(id))
     })
 
     when (viewState.value?.adState) {
@@ -52,7 +52,11 @@ fun AdScreen(adViewModel: AdViewModel, data: AdViewData?) {
                 AdSubState.Image -> ImageView(imageUri = viewState.value!!.adData!!.photoUri.toString())
             }
         }
-        AdState.Empty -> {}
+        AdState.Empty -> {
+            AdEmptyColumn {
+                adViewModel.popBackStack()
+            }
+        }
         null -> TODO()
     }
 }

@@ -20,7 +20,7 @@ class ModelParserImpl @Inject constructor(
         return adViewList
     }
 
-    private fun adParser(adData: AdData): AdViewData {
+    override fun adParser(adData: AdData): AdViewData {
         val geocoder = Geocoder(appContext)
         val fullAddress = geocoder.getFromLocation(
             adData.geoPosition.lat,

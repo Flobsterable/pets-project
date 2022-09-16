@@ -7,5 +7,5 @@ sealed class AdsListEvent {
 
     object GetAdList : AdsListEvent()
     data class ChangeFilterOption(val value: PetType) : AdsListEvent()
-    data class OpenAd(val value: AdViewData) : AdsListEvent()
+    data class OpenAd(val value: Int) : AdsListEvent()
 }

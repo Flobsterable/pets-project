@@ -8,6 +8,7 @@ import com.example.pets_project.services.network.models.UserRegistrationData
 import com.example.pets_project.services.network.models.UserTokenResponse
 import com.example.pets_project.ui.screens.main.addAd.model.AdViewData
 import com.example.pets_project.ui.screens.main.model.PetType
+import com.example.pets_project.viewModels.AdViewModel
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -18,11 +19,13 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class NetworkServiceImpl @Inject constructor(
-    private val modelParser: ModelParser
+    private var modelParser: ModelParser
 ) : NetworkService {
 
     private fun getBaseUr(): String = "https://petsproject.issart.com/api/1.0.0/"
     private val gson = GsonConverterFactory.create(GsonBuilder().create())
+
+    private var adList: List<AdData>? = null
 
     private val client = OkHttpClient.Builder()
         .callTimeout(5, TimeUnit.SECONDS)
@@ -89,7 +92,8 @@ class NetworkServiceImpl @Inject constructor(
     override suspend fun postAd(adData: AdData): Boolean {
 
         val postAdResponse = networkService.postAd(adData)
-        Log.e("post ad", "\n${adData.title}\n${adData.description}\n${adData.petType}\n${adData.imageUrl}\n${adData.geoPosition}")
+        Log.e("post ad",
+            "\n${adData.title}\n${adData.description}\n${adData.petType}\n${adData.imageUrl}\n${adData.geoPosition}")
         return when (postAdResponse.code()) {
             200 -> true
             else -> false
@@ -117,10 +121,27 @@ class NetworkServiceImpl @Inject constructor(
             else -> ""
         }
 
-        val adList = getAdListFromServer(type)
+        adList = getAdListFromServer(type)
 
         if (adList != null) {
-            return modelParser.adListParser(adList)
+            return modelParser.adListParser(adList!!)
+        }
+        return null
+    }
+
+    override suspend fun getAd(id: Int): AdViewData? {
+
+        if (adList == null) {
+            adList = getAdListFromServer("")
+            if (adList == null) {
+                return null
+            }
+        }
+
+        for (item in adList!!) {
+            if (item.id == id) {
+                return modelParser.adParser(item)
+            }
         }
         return null
     }

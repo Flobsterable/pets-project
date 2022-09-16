@@ -1,6 +1,6 @@
 package com.example.pets_project.navigation.model
 
-const val DETAIL_ARGUMENT_KEY = "data"
+const val DETAIL_ARGUMENT_KEY = "id"
 
 sealed class AppScreens(
     val nameScreen: String

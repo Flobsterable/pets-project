@@ -4,5 +4,5 @@ import com.example.pets_project.ui.screens.main.addAd.model.AdViewData
 
 sealed class AdEvent {
     data class ChangeState(val value: AdSubState) : AdEvent()
-    data class SaveData(val value: AdViewData) : AdEvent()
+    data class GetViewData(val value: Int) : AdEvent()
 }
