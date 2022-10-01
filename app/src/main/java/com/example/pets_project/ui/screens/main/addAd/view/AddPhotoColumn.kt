@@ -80,7 +80,7 @@ fun AddPhotoColumn(addAdViewModel: AddAdViewModel) {
 
     Column(
         modifier = Modifier
-            .padding(start = 54.dp, end = 54.dp)
+            .padding(start = 47.dp, end = 47.dp)
             .fillMaxWidth()
             .fillMaxHeight(),
         verticalArrangement = Arrangement.Center,
@@ -89,7 +89,9 @@ fun AddPhotoColumn(addAdViewModel: AddAdViewModel) {
     ) {
         MarkButton(
             onClick = { takePhoto() },
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(56.dp),
             stringResId = R.string.button_add_photo,
             painterResId = R.drawable.ic_photo,
             contentDescriptionResId = R.string.cd_add_ad_photo
@@ -98,7 +100,8 @@ fun AddPhotoColumn(addAdViewModel: AddAdViewModel) {
             onClick = { getImage() },
             modifier = Modifier
                 .padding(top = 40.dp)
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .height(56.dp),
             stringResId = R.string.button_get_image,
             painterResId = R.drawable.ic_image,
             contentDescriptionResId = R.string.cd_add_ad_get_image

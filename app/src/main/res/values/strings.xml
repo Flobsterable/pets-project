@@ -1,5 +1,7 @@
 <resources>
     //App view strings
+
+    <string name="EMPTY_STRING"></string>
     //Login Screen
     <string name="app_name">pets-project</string>
     <string name="button_login">Войти</string>

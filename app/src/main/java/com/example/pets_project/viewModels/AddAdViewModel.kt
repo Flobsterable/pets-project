@@ -39,7 +39,6 @@ class AddAdViewModel @Inject constructor(
             AddAdEvent.ConfirmAddress -> confirmAddress()
             AddAdEvent.GetCurrentLocation -> TODO()
             AddAdEvent.NavigateToMainScreen -> navigateToMainScreen()
-            AddAdEvent.SwitchShowPermission -> switchShowPermission()
 
             is AddAdEvent.DescriptionAdChanged -> descriptionAdChanged(event.value)
             is AddAdEvent.NameAdChanged -> nameAdChanged(event.value)
@@ -47,12 +46,6 @@ class AddAdViewModel @Inject constructor(
             is AddAdEvent.PhotoChanged -> photoChanged(event.value)
             is AddAdEvent.ChangedState -> changeState(event.value)
         }
-    }
-
-    private fun switchShowPermission() {
-        var isShow = viewState.value?.isShowPermission
-        isShow = !isShow!!
-        _viewState.postValue(_viewState.value?.copy(isShowPermission = isShow))
     }
 
     private fun nameAdChanged(value: String) {
