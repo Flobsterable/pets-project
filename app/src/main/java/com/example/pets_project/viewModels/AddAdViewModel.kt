@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.pets_project.navigation.AppNavigation
 import com.example.pets_project.navigation.model.AppScreens
 import com.example.pets_project.repository.Repository
+import com.example.pets_project.services.location.LocationService
 import com.example.pets_project.services.network.NetworkService
 import com.example.pets_project.services.network.models.AdData
 import com.example.pets_project.services.network.models.GeoPosition
@@ -26,7 +27,8 @@ import javax.inject.Inject
 class AddAdViewModel @Inject constructor(
     private val networkService: NetworkService,
     private val repository: Repository,
-    private val navigation: AppNavigation
+    private val navigation: AppNavigation,
+    private val locationService: LocationService
 ) : ViewModel(), EventHandler<AddAdEvent> {
 
     private val _viewState = MutableLiveData(AddAdViewState())
@@ -39,6 +41,8 @@ class AddAdViewModel @Inject constructor(
             AddAdEvent.ConfirmAddress -> confirmAddress()
             AddAdEvent.GetCurrentLocation -> TODO()
             AddAdEvent.NavigateToMainScreen -> navigateToMainScreen()
+            AddAdEvent.UpdateLocation -> updateLocation()
+            AddAdEvent.SetDefaultLocation -> setDefaultLocation()
 
             is AddAdEvent.DescriptionAdChanged -> descriptionAdChanged(event.value)
             is AddAdEvent.NameAdChanged -> nameAdChanged(event.value)
@@ -114,7 +118,10 @@ class AddAdViewModel @Inject constructor(
                     imageUrl = viewState.value?.photo.toString(),
                     title = viewState.value!!.adName,
                     description = viewState.value!!.adDescription,
-                    geoPosition = GeoPosition(0.0, 0.0)
+                    geoPosition = GeoPosition(
+                        viewState.value!!.userLocation.latitude,
+                        viewState.value!!.userLocation.longitude
+                    ),
                 )
             )
             when (isPostSuccess) {
@@ -146,5 +153,26 @@ class AddAdViewModel @Inject constructor(
 
     private fun navigateToMainScreen() {
         navigation.navigateTo(appScreen = AppScreens.MainScreen)
+    }
+
+    private fun updateLocation() {
+        viewModelScope.launch {
+            locationService.requestLocationResultCallback() { locationResult ->
+
+                locationResult.lastLocation.let { location ->
+                    val position = locationService.getPosition(location!!)
+                    _viewState.postValue(_viewState.value!!.copy(userLocation = position))
+                }
+            }
+        }
+    }
+
+    private fun setDefaultLocation() {
+        val defaultLocation = locationService.getDefaultLocation()
+        _viewState.postValue(
+            _viewState.value?.copy(
+                userLocation = locationService.getPosition(defaultLocation)
+            )
+        )
     }
 }

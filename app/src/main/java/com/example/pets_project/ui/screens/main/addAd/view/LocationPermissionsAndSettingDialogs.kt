@@ -1,19 +1,24 @@
 package com.example.pets_project.ui.screens.main.addAd.view
 
 import android.Manifest
+import android.content.pm.PackageManager
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.*
 import androidx.compose.ui.platform.LocalContext
-import com.example.pets_project.utils.LocationUtil
+import androidx.core.content.ContextCompat
+import com.example.pets_project.utils.Callback
 
 @Composable
 fun LocationPermissionsAndSettingDialogs(
-    updateCurrentLocation: () -> Unit,
+    updateCurrentLocation: Callback,
 ) {
     var requestLocationSetting by remember { mutableStateOf(false) }
 
-    if (LocationUtil.isLocationPermissionGranted(LocalContext.current)) {
+    if (ContextCompat.checkSelfPermission(
+            LocalContext.current, Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+    ) {
         SideEffect {
             requestLocationSetting = true
         }
@@ -45,8 +50,8 @@ fun LocationPermissionsAndSettingDialogs(
 
 @Composable
 fun LocationPermissionsDialog(
-    onPermissionGranted: () -> Unit,
-    onPermissionDenied: () -> Unit,
+    onPermissionGranted: Callback,
+    onPermissionDenied: Callback,
 ) {
     val requestLocationPermissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()

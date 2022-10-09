@@ -52,6 +52,7 @@
     <string name="cd_add_ad_pets_type_dog">Собака</string>
     <string name="cd_add_ad_pets_type_other">Другое</string>
     <string name="cd_add_ad_add_photo">Добавить фото</string>
+    <string name="cd_button_geoposition">Мое расположение</string>
 
     //Error messages
     <string name="error_empty">Поле не должно быть пустым</string>

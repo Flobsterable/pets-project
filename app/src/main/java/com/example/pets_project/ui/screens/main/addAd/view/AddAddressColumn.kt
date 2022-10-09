@@ -4,46 +4,47 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.pets_project.R
 import com.example.pets_project.ui.screens.login.view.MarkButton
 import com.example.pets_project.ui.screens.main.addAd.model.AddAdEvent
-import com.example.pets_project.utils.LocationUtil
 import com.example.pets_project.viewModels.AddAdViewModel
-import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.maps.android.compose.rememberCameraPositionState
 
 @Composable
 fun AddAddressColumn(addAdViewModel: AddAdViewModel) {
 
-    val fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(LocalContext.current)
-
-    var currentLocation by remember { mutableStateOf(LocationUtil.getDefaultLocation()) }
+    LaunchedEffect(key1 = Unit, block = {
+        addAdViewModel.obtainEvent(AddAdEvent.SetDefaultLocation)
+    })
 
     var requestLocationUpdate by remember { mutableStateOf(true) }
-
     val cameraPositionState = rememberCameraPositionState()
     cameraPositionState.position = CameraPosition.fromLatLngZoom(
-        LocationUtil.getPosition(currentLocation), 16f
+        addAdViewModel.viewState.value!!.userLocation, 16f
     )
     BoxWithConstraints(
         modifier = Modifier.padding(bottom = 56.dp)
     ) {
 
-        MyGoogleMap(
-            currentLocation = currentLocation,
+        MapView(
+            currentLocation = addAdViewModel.viewState.value!!.userLocation,
             cameraPositionState = cameraPositionState,
-            onGpsIconClick = {
-                requestLocationUpdate = true
-            }
         )
 
         Column(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = 16.dp, bottom = 16.dp, start = 16.dp, end = 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Bottom
         ) {
+            Row() {
+                Spacer(modifier = Modifier.weight(1f))
+                GpsButton(onClick = {requestLocationUpdate = true})
+            }
+            Spacer(modifier = Modifier.weight(1f))
 
             MarkButton(
                 onClick = { addAdViewModel.obtainEvent(AddAdEvent.ConfirmAddress) },
@@ -59,12 +60,7 @@ fun AddAddressColumn(addAdViewModel: AddAdViewModel) {
         LocationPermissionsAndSettingDialogs(
             updateCurrentLocation = {
                 requestLocationUpdate = false
-                LocationUtil.requestLocationResultCallback(fusedLocationProviderClient) { locationResult ->
-
-                    locationResult.locations[0]?.let { location ->
-                        currentLocation = location
-                    }
-                }
+                addAdViewModel.obtainEvent(AddAdEvent.UpdateLocation)
             }
         )
     }

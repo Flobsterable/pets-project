@@ -25,7 +25,9 @@ fun AdsListScreen(adsListViewModel: AdsListViewModel) {
 
     val viewState = adsListViewModel.viewState.observeAsState()
 
-    adsListViewModel.obtainEvent(AdsListEvent.GetAdList)
+    LaunchedEffect(key1 = Unit, block = {
+        adsListViewModel.obtainEvent(AdsListEvent.GetAdList)
+    })
 
     Column(
         modifier = Modifier

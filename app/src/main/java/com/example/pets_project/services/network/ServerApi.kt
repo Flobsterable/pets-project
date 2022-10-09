@@ -4,7 +4,6 @@ import com.example.pets_project.services.network.models.AdData
 import com.example.pets_project.services.network.models.UserLoginData
 import com.example.pets_project.services.network.models.UserRegistrationData
 import com.example.pets_project.services.network.models.UserTokenResponse
-import com.example.pets_project.ui.screens.main.model.PetType
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -26,5 +25,5 @@ interface ServerApi {
     suspend fun postAd(@Body adData: AdData): Response <Void>
 
     @GET("announcements")
-    suspend fun getAds(@Query("petType") petType: String) : Response <List<AdData>?>
+    suspend fun getAds(@Query("petType") petType: String): Response <List<AdData>?>
 }

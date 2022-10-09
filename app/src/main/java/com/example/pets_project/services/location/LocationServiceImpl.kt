@@ -1,6 +1,7 @@
-package com.example.pets_project.utils
+package com.example.pets_project.services.location
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
@@ -9,9 +10,15 @@ import android.os.Looper
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.model.LatLng
+import javax.inject.Inject
 
-object LocationUtil {
-    fun getDefaultLocation(): Location {
+class LocationServiceImpl @Inject constructor(
+    private val appContext: Context
+) : LocationService {
+
+    val fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(appContext)
+
+    override fun getDefaultLocation(): Location {
         val location = Location(LocationManager.GPS_PROVIDER)
         val moscow = LatLng(55.755819, 37.617644)
         location.latitude = moscow.latitude
@@ -19,15 +26,14 @@ object LocationUtil {
         return location
     }
 
-    fun getPosition(location: Location): LatLng {
+    override fun getPosition(location: Location): LatLng {
         return LatLng(
             location.latitude,
             location.longitude
         )
     }
-
-    fun requestLocationResultCallback(
-        fusedLocationProviderClient: FusedLocationProviderClient,
+    @SuppressLint("MissingPermission")
+    override fun requestLocationResultCallback(
         locationResultCallback: (LocationResult) -> Unit
     ) {
 
@@ -42,8 +48,8 @@ object LocationUtil {
         }
 
         val locationRequest = LocationRequest.create().apply {
-            interval = 10
-            fastestInterval = 10
+            interval = 0
+            fastestInterval = 0
             priority = Priority.PRIORITY_HIGH_ACCURACY
         }
         Looper.myLooper()?.let { looper ->
@@ -53,13 +59,5 @@ object LocationUtil {
                 looper
             )
         }
-    }
-
-    fun isLocationPermissionGranted(context: Context): Boolean {
-        return (
-            ContextCompat.checkSelfPermission(
-                context, Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
-            )
     }
 }

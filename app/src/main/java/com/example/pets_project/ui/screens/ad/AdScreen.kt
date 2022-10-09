@@ -12,7 +12,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.pets_project.R
-import com.example.pets_project.services.network.models.GeoPosition
 import com.example.pets_project.ui.screens.ad.MapView
 import com.example.pets_project.ui.screens.ad.model.AdEvent
 import com.example.pets_project.ui.screens.ad.model.AdState
@@ -44,10 +43,7 @@ fun AdScreen(adViewModel: AdViewModel, id: Int) {
                     adViewModel.obtainEvent(AdEvent.ChangeState(it))
                 }
                 AdSubState.Map -> MapView(
-                    geoPosition = GeoPosition(
-                        viewState.value!!.adData!!.location[0],
-                        viewState.value!!.adData!!.location[1]
-                    )
+                    geoPosition = viewState.value!!.adData!!.location
                 )
                 AdSubState.Image -> ImageView(imageUri = viewState.value!!.adData!!.photoUri.toString())
             }
