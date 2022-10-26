@@ -9,7 +9,8 @@ sealed class AddAdEvent {
     object GetCurrentLocation : AddAdEvent()
     object ConfirmAddress : AddAdEvent()
     object NavigateToMainScreen : AddAdEvent()
-    object SwitchShowPermission : AddAdEvent()
+    object UpdateLocation : AddAdEvent()
+    object SetDefaultLocation : AddAdEvent()
 
     data class NameAdChanged(val value: String) : AddAdEvent()
     data class DescriptionAdChanged(val value: String) : AddAdEvent()

@@ -23,11 +23,10 @@ import com.example.pets_project.ui.screens.main.addAd.model.AdViewData
 import com.example.pets_project.ui.theme.Typography
 import com.example.pets_project.ui.theme.adHeaderText
 import com.example.pets_project.ui.theme.subText
-import com.example.pets_project.utils.IntCallback
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun AdsListItemView(adViewData: AdViewData, onClick: (AdViewData)-> Unit) {
+fun AdsListItemView(adViewData: AdViewData, onClick: (AdViewData) -> Unit) {
 
     Card(
         modifier = Modifier

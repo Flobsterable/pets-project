@@ -5,6 +5,8 @@ import com.example.pets_project.navigation.AppNavigation
 import com.example.pets_project.navigation.AppNavigationImpl
 import com.example.pets_project.repository.Repository
 import com.example.pets_project.repository.RepositoryImpl
+import com.example.pets_project.services.location.LocationService
+import com.example.pets_project.services.location.LocationServiceImpl
 import com.example.pets_project.services.modelParser.ModelParser
 import com.example.pets_project.services.modelParser.ModelParserImpl
 import com.example.pets_project.services.network.NetworkService
@@ -24,6 +26,13 @@ object AppModule {
     fun provideNetwork(
         modelParser: ModelParser
     ): NetworkService = NetworkServiceImpl(modelParser)
+
+    @Singleton
+    @Provides
+    fun provideLocationService(
+        @ApplicationContext
+        appContext: Context,
+    ): LocationService = LocationServiceImpl(appContext)
 
     @Singleton
     @Provides

@@ -1,5 +1,7 @@
 package com.example.pets_project.services.network.models
 
+import com.google.android.gms.maps.model.LatLng
+
 data class AdData(
     val id: Int,
     val petType: String,

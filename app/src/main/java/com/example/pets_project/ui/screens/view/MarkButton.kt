@@ -39,7 +39,8 @@ fun MarkButton(
         Text(
             modifier = Modifier.padding(end = 32.dp),
             text = stringResource(id = stringResId),
-            style = MaterialTheme.typography.button
+            style = MaterialTheme.typography.button,
+            maxLines = 1
         )
     }
 }

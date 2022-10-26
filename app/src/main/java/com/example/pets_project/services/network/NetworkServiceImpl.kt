@@ -137,7 +137,6 @@ class NetworkServiceImpl @Inject constructor(
                 return null
             }
         }
-
         for (item in adList!!) {
             if (item.id == id) {
                 return modelParser.adParser(item)

@@ -13,8 +13,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.pets_project.navigation.model.AppScreens
 import com.example.pets_project.navigation.model.BottomBarItem
-import com.example.pets_project.services.network.models.AdData
-import com.example.pets_project.services.network.models.GeoPosition
 import com.example.pets_project.ui.screens.main.addAd.AddAdScreen
 import com.example.pets_project.ui.screens.main.adsList.AdScreen
 import com.example.pets_project.ui.screens.main.adsList.AdsListScreen
